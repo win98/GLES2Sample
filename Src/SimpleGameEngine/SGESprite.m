@@ -1,0 +1,110 @@
+//
+//  SGESprite.m
+//  GLES2Sample
+//
+//  Created by Sergey on 02.03.14.
+//
+//
+
+#import "SGESprite.h"
+#import "SGEResourcesLoader.h"
+
+@implementation SGESprite
+
+@synthesize spriteFrame;
+
+- (id) initFromImageFile:(NSString*)fileName
+{
+	if(self = [super init]){
+		self.spriteFrame = [SGEResourcesLoader loadImageFile:fileName];
+		
+		if(self.spriteFrame.texture.highDefinition){
+			
+			self.contentSize = CGSizeMake(spriteFrame.frame.size.width * 0.5f,
+										  spriteFrame.frame.size.height * 0.5f);
+		} else {
+			
+			self.contentSize = spriteFrame.frame.size;
+		}
+	}
+	
+	return self;
+}
+
+- (id) initFromImageFile:(NSString*)fileName position:(CGPoint)pos
+{
+	if(self = [self initFromImageFile:fileName]){
+		
+		self.position = pos;
+	}
+	
+	return self;
+}
+
+- (id) initWithSpriteFrame:(SGESpriteFrame*)sFrame
+{
+	if(self = [super init]){
+		
+		self.spriteFrame = sFrame;
+		
+		if(self.spriteFrame.texture.highDefinition){
+			
+			self.contentSize = CGSizeMake(spriteFrame.frame.size.width * 0.5f,
+										  spriteFrame.frame.size.height * 0.5f);
+		} else {
+			
+			self.contentSize = spriteFrame.frame.size;
+		}
+	}
+	
+	return self;
+}
+
+- (id) initWithSpriteFrame:(SGESpriteFrame*)sFrame position:(CGPoint)pos
+{
+	if(self = [self initWithSpriteFrame:sFrame]){
+		
+		self.position = pos;
+	}
+	
+	return self;
+}
+
++ (id) spriteFromImageFile:(NSString*)fileName
+{
+	return [[[SGESprite alloc]initFromImageFile:fileName]autorelease];
+}
+
++ (id) spriteFromImageFile:(NSString*)fileName position:(CGPoint)pos
+{
+	return [[[SGESprite alloc]initFromImageFile:fileName position:pos]autorelease];
+}
+
++ (id) spriteWithSpriteFrame:(SGESpriteFrame*)sFrame
+{
+	return [[[SGESprite alloc]initWithSpriteFrame:sFrame]autorelease];
+}
+
++ (id) spriteWithSpriteFrame:(SGESpriteFrame*)sFrame position:(CGPoint)pos
+{
+	return [[[SGESprite alloc]initWithSpriteFrame:sFrame position:pos]autorelease];
+}
+
+- (void) draw
+{
+	[self.spriteFrame.texture drawFrame:self.spriteFrame.textureSpaceFrame
+						withAnchorPoint:self.anchorPointInPoints
+								atPoint:self.position
+						   withRotation:self.rotation
+							 withScaleX:self.scaleX
+							 withScaleY:self.scaleY];
+}
+
+- (void) dealloc
+{
+	self.spriteFrame = nil;
+	
+	[super dealloc];
+}
+
+@end
