@@ -8,6 +8,7 @@
 
 #import "SGESprite.h"
 #import "SGEResourcesLoader.h"
+#import "SGEGLTexture.h"
 
 @implementation SGESprite
 
@@ -92,12 +93,64 @@
 
 - (void) draw
 {
-	[self.spriteFrame.texture drawFrame:self.spriteFrame.textureSpaceFrame
-						withAnchorPoint:self.anchorPointInPoints
-								atPoint:self.position
-						   withRotation:self.rotation
-							 withScaleX:self.scaleX
-							 withScaleY:self.scaleY];
+	SGEGLTexture *texture = self.spriteFrame.texture;
+	
+	float k = texture.highDefinition ? 0.5f : 1.0f;
+	
+	CGPoint pPos = self.parent.globalPosition;
+	CGPoint sPos = self.position;
+	CGPoint anchor = self.anchorPointInPoints;
+	GLfloat width = self.contentSize.width * k;
+	GLfloat height = self.contentSize.height * k;
+	
+	GLfloat fWidth = self.spriteFrame.textureSpaceFrame.size.width;
+	GLfloat fHeight = self.spriteFrame.textureSpaceFrame.size.height;
+	GLfloat fx = self.spriteFrame.textureSpaceFrame.origin.x;
+	GLfloat fy = self.spriteFrame.textureSpaceFrame.origin.y;
+	
+	//Texture is directed upside-down.
+	//So invert coordinates too.
+	GLfloat		texCoordinates[] = {
+		fx, fy + fHeight,
+		fx + fWidth, fy + fWidth,
+		fx, fy,
+		fx + fWidth, fy
+	};
+	
+	GLfloat left = -1 * anchor.x;
+	GLfloat right = width - anchor.x;
+	GLfloat top = anchor.y;
+	GLfloat bottom = -(height - anchor.y);
+	
+	GLfloat vertices[] = {
+		left, bottom, 0,
+		right, bottom, 0,
+		left, top, 0,
+		right, top, 0
+	};
+	
+	glColor4f(self.color.red,
+			  self.color.green,
+			  self.color.blue,
+			  self.color.alpha);
+	
+	glBindTexture(GL_TEXTURE_2D, texture.name);
+	glVertexPointer(3, GL_FLOAT, 0, vertices);
+	glTexCoordPointer(2, GL_FLOAT, 0, texCoordinates);
+	
+	glPushMatrix();
+	
+	glTranslatef(pPos.x, pPos.y, 0);
+	glRotatef(self.parent.rotation, 0, 0, 1);
+	
+	glPushMatrix();
+	glTranslatef(sPos.x + anchor.x, sPos.y - anchor.y, 0);
+	glRotatef(self.rotation - self.spriteFrame.rotation, 0, 0, 1);
+	glScalef(self.scaleX, self.scaleY, 1);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+	glPopMatrix();
+	
+	glPopMatrix();
 }
 
 - (void) dealloc

@@ -47,7 +47,7 @@
 
 #import <UIKit/UIKit.h>
 #import <OpenGLES/ES1/gl.h>
-
+#import "SGENode.h"
 //CONSTANTS:
 
 typedef enum {
@@ -106,7 +106,7 @@ typedef enum {
 - (void) drawInVertices:(GLfloat*) vertices;
 
 - (void) drawFrame:(CGRect)imageFrame withAnchorPoint:(CGPoint)anchorPoint atPoint:(CGPoint)destPoint
-	  withRotation:(float)rotAngle withScaleX:(float)scaleX withScaleY:(float)scaleY;
+	  withRotation:(float)rotAngle withScaleX:(float)scaleX withScaleY:(float)scaleY  color:(SGEColor)color;
 @end
 
 /*
