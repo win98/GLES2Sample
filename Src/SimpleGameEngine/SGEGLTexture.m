@@ -49,6 +49,7 @@
 
 #import "SGEGLTexture.h"
 
+
 //CONSTANTS:
 
 #define kMaxTextureSize	 2048
@@ -299,7 +300,7 @@
 }
 
 - (void) drawFrame:(CGRect)imageFrame withAnchorPoint:(CGPoint)anchorPoint atPoint:(CGPoint)destPoint
-	  withRotation:(float)rotAngle withScaleX:(float)scaleX withScaleY:(float)scaleY color:(SGEColor)color
+	  withRotation:(float)rotAngle withScaleX:(float)scaleX withScaleY:(float)scaleY
 {
 	float k = self.highDefinition ? 0.5f : 1.0f;
 	
@@ -309,7 +310,7 @@
 	GLfloat fy = imageFrame.origin.y;
 	
 	//Texture is directed upside-down.
-	//So invert coordinates too.
+	//So invert frame too.
 	GLfloat		texCoordinates[] = {
 		fx, fy + fHeight,
 		fx + fWidth, fy + fWidth,
@@ -332,7 +333,6 @@
 		right, top, 0
 	};
 	
-	glColor4f(color.red, color.green, color.blue, color.alpha);
 	
 	glBindTexture(GL_TEXTURE_2D, _name);
 	glVertexPointer(3, GL_FLOAT, 0, vertices);

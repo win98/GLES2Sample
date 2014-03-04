@@ -41,14 +41,12 @@ SGESprite *s1, *s2;
 																  frame: CGRectMake(92, 92, 92, 92)
 															   rotation:0 name:@""];
 		s1 = [[SGESprite alloc]initWithSpriteFrame:sFrame];
-		s1.position = CGPointMake(0, 0);// + s1.contentSize.height);
+		s1.position = CGPointMake(50, 50 + s1.contentSize.height);
 		s1.anchorPoint = CGPointMake(0.5f, 0.5f);
 		s1.rotation = 45;
 		
 		s2 = [[SGESprite alloc]initFromImageFile:@"box2.png"];
-		s2.position = CGPointMake(100, 400);
-		s2.rotation = 45;
-		[s2 addChild:s1];
+		s2.position = CGPointMake(768-s2.contentSize.width, 1024);
 		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);
@@ -112,9 +110,8 @@ SGESprite *s1, *s2;
 	
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-//	[s1 process];
+	[s1 process];
 	[s2 process];
-	s2.rotation -= 2;
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	

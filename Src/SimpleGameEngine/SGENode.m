@@ -13,7 +13,6 @@
 @implementation SGENode
 
 @synthesize position;
-@synthesize globalPosition;
 @synthesize contentSize;
 @synthesize anchorPoint;
 @synthesize anchorPointInPoints;
@@ -21,8 +20,6 @@
 @synthesize scaleX;
 @synthesize scaleY;
 @synthesize rotation;
-@synthesize globalRotation;
-@synthesize color;
 @synthesize visible;
 @synthesize parent;
 
@@ -63,6 +60,13 @@
 	return desc;
 }
 
+- (void) setScale:(float)scale_
+{
+	scale = scale_;
+	scaleX = scale_;
+	scaleY = scale_;
+}
+
 - (void) setAnchorPoint:(CGPoint)anchorPoint_
 {
 	anchorPoint = anchorPoint_;
@@ -71,74 +75,11 @@
 									  contentSize.height * anchorPoint_.y);
 }
 
-- (void) setPosition:(CGPoint)position_
-{
-	position = position_;
-	float x = position_.x;
-	float y = position_.y;
-	
-	SGENode *node = self;
-	while ((node = node.parent)) {
-		x += node.position.x;
-		y += node.position.y;
-	}
-	
-	globalPosition = CGPointMake(x, y);
-}
-
-- (void) setScale:(float)scale_
-{
-	scale = scale_;
-	
-	if(children.count){
-		for(SGENode *child in children){
-			[child setScale:scale_];
-		}
-	}
-}
-
-- (void) setScaleX:(float)scaleX_
-{
-	scaleX = scaleX_;
-	
-	if(children.count){
-		for(SGENode *child in children){
-			[child setScaleX:scaleX_];
-		}
-	}
-}
-
-- (void) setScaleY:(float)scaleY_
-{
-	scaleY = scaleY_;
-	
-	if(children.count){
-		for(SGENode *child in children){
-			[child setScaleY:scaleY_];
-		}
-	}
-}
-
-- (void) setRotation:(float)rotation_
-{
-	rotation = rotation_;
-	float r = rotation_;
-	
-	if(children.count){
-		for(SGENode *child in children){
-			r += rotation_;
-		}
-	}
-	
-	globalRotation = r;
-}
-
 - (void) addChild:(SGENode*)child
-{	
-	if(![children containsObject:child]){
+{
+	if([children containsObject:child]){
 		
 		child.parent = self;
-		[child onAdded];
 		[children addObject:child];
 	} else {
 		
@@ -151,30 +92,11 @@
 	if(![children containsObject:child]){
 		
 		child.parent = nil;
-		[child onRemoved];
 		[children removeObject:child];
 	} else {
 		
 		SGELog(@"!Child not found");
 	}
-}
-
-- (void) onAdded
-{
-	float x = self.position.x;
-	float y = self.position.y;
-	float sx = self.parent.scaleX;
-	
-	SGENode *node = self;
-	while ((node = node.parent)) {
-		x += node.position.x;
-		y += node.position.y;
-	}
-}
-
-- (void) onRemoved
-{
-	
 }
 
 - (void) tick:(float)dt
