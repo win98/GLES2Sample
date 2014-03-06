@@ -30,7 +30,11 @@ static inline SGEColor SGEColorMake (float red, float green, float blue, float a
 }
 
 @interface SGENode : SGEObject{
-	NSMutableArray *children;
+	
+	kmMat4 transform;
+	
+	BOOL needToUpdatetransform;
+	BOOL needToSortChildren;
 }
 
 @property(nonatomic) CGPoint position;
@@ -44,6 +48,8 @@ static inline SGEColor SGEColorMake (float red, float green, float blue, float a
 @property(nonatomic) SGEColor color;
 @property(nonatomic) BOOL visible;
 @property(nonatomic, assign) SGENode *parent;
+@property(nonatomic) int z;
+@property(nonatomic, retain) NSMutableArray *children;
 
 - (id) initWithPosition:(CGPoint)pos;
 - (void) addChild:(SGENode*)child;

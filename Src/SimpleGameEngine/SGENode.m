@@ -19,8 +19,11 @@
 @synthesize scaleX;
 @synthesize scaleY;
 @synthesize rotation;
+@synthesize color;
 @synthesize visible;
 @synthesize parent;
+@synthesize z;
+@synthesize children;
 
 - (id) init
 {
@@ -28,13 +31,18 @@
 		
 		children = [[NSMutableArray alloc]init];
 		
-		self.contentSize = CGSizeMake(0, 0);
-		self.anchorPoint = CGPointMake(0, 0);
-		self.scale = 1.0f;
-		self.rotation = 0;
-		self.visible = YES;
+		contentSize = CGSizeMake(0, 0);
+		anchorPoint = CGPointMake(0, 0);
+		scale = 1.0f;
+		scaleX = 1.0f;
+		scaleY = 1.0f;
+		rotation = 0;
+		visible = YES;
+		z = 0;
+		color = SGEColorMake(1.f, 1.f, 1.f, 1.f);
 		
-		self.color = SGEColorMake(1.f, 1.f, 1.f, 1.f);
+		needToUpdatetransform = YES;
+		needToSortChildren = NO;
 	}
 	
 	return self;
@@ -64,6 +72,29 @@
 	scale = scale_;
 	scaleX = scale_;
 	scaleY = scale_;
+	
+	needToUpdatetransform = YES;
+}
+
+- (void) setScaleX:(float)scaleX_
+{
+	scaleX = scaleX_;
+	
+	needToUpdatetransform = YES;
+}
+
+- (void) setScaleY:(float)scaleY_
+{
+	scaleY = scaleY_;
+	
+	needToUpdatetransform = YES;
+}
+
+- (void) setPosition:(CGPoint)position_
+{
+	position = position_;
+	
+	needToUpdatetransform = YES;
 }
 
 - (void) setAnchorPoint:(CGPoint)anchorPoint_
@@ -72,6 +103,22 @@
 	
 	anchorPointInPoints = CGPointMake(contentSize.width * anchorPoint_.x,
 									  contentSize.height * anchorPoint_.y);
+	
+	needToUpdatetransform = YES;
+}
+
+- (void) setZ:(int)z_
+{
+	z = z_;
+	
+	needToSortChildren = YES;
+}
+
+- (void) setRotation:(float)rotation_
+{
+	rotation = rotation_;
+	
+	needToUpdatetransform = YES;
 }
 
 - (void) addChild:(SGENode*)child
@@ -80,6 +127,7 @@
 		
 		child.parent = self;
 		[children addObject:child];
+		needToSortChildren = YES;
 	} else {
 		
 		SGELog(@"!Child is already added");
@@ -108,13 +156,48 @@
 	
 }
 
+//TODO: test sorting and implement color of children
+
+- (void) sortChildren
+{
+	if(needToSortChildren && [children count]) {
+		
+		self.children = [[NSMutableArray arrayWithArray:
+						  [children sortedArrayUsingComparator:^(id obj1, id obj2){
+								NSComparisonResult res = ((SGENode*)obj1).z <= ((SGENode*)obj2).z ?
+															NSOrderedAscending
+															: NSOrderedDescending;
+					
+								return res;}
+						   ]]retain];
+		
+		needToSortChildren = NO;
+	}
+}
+
 - (void) transform
 {
-	kmGLTranslatef(self.position.x + self.anchorPointInPoints.x,
-				   -self.position.y - self.anchorPointInPoints.y,
-				   0);
-	kmGLRotatef(self.rotation, 0, 0, 1);
-	kmGLScalef(scaleX, scaleY, 1);
+	if(needToUpdatetransform){
+		kmMat4Identity(&transform);
+		
+		kmMat4 matrix;
+		kmMat4 tmp;
+		
+		kmMat4Translation(&matrix,
+						  self.position.x + self.anchorPointInPoints.x,
+						  -self.position.y - self.anchorPointInPoints.y,
+						  0);
+		kmMat4Multiply(&tmp, &transform, &matrix);
+		kmMat4RotationZ(&matrix, SGE_DEGREES_TO_PI(self.rotation));
+		kmMat4Multiply(&transform, &tmp, &matrix);
+		kmMat4Scaling(&matrix, scaleX, scaleY, 1);
+		kmMat4Multiply(&tmp, &transform, &matrix);
+		kmMat4Assign(&transform, &tmp);
+		
+		needToUpdatetransform = NO;
+	}
+	
+	kmGLMultMatrix(&transform);
 }
 
 - (void) process
@@ -126,6 +209,7 @@
 	kmGLPushMatrix();
 	
 	[self transform];
+	[self sortChildren];
 	[self draw];
 	
 	if(children.count){
@@ -140,7 +224,7 @@
 
 - (void) dealloc
 {
-	[children release];
+	self.children = nil;
 	
 	[super dealloc];
 }

@@ -50,22 +50,20 @@ int km_mat4_stack_context_ref;
 																  frame: CGRectMake(92, 92, 92, 92)
 															   rotation:0 name:@"pic"];
 		s2 = [SGESprite spriteWithSpriteFrame:sFrame];
-		s2.position = CGPointMake(-46, -46);
+		s2.position = CGPointMake(210, 210);
 		
 		s1 = [[SGESprite alloc]initFromImageFile:@"box2.png"];
-		s1.position = CGPointMake(100, 100);
+		s1.position = CGPointMake(0, 0);
 		
 		SGESpriteFrame *sFrame2 = [[SGESpriteFrame alloc]initWithTexture:texture
 																  frame: CGRectMake(184, 184, 92, 92)
 															   rotation:0 name:@"pic"];
 		s3 = [SGESprite spriteWithSpriteFrame:sFrame2];
-		s3.position = CGPointMake(20, 20);
-		
+		s3.position = CGPointMake(46, 46);
 		[s1 addChild:s2];
-//		[s2 addChild:s3];
+		[s2 addChild:s3];
 		s2.color = SGEColorMake(1, 1, 1, 0.5f);
-		s2.scale = 1;
-		s1.scale = 0.5;
+		s3.scale = 2;
 		s2.anchorPoint = CGPointMake(0.5f, 0.5f);
 		
 		globalNode = [[SGENode alloc]initWithPosition:CGPointMake(0, 0)];
@@ -135,7 +133,8 @@ int km_mat4_stack_context_ref;
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	[globalNode process];
-	s2.rotation -= 1;
+//	s2.rotation -= 1;
+//	s1.rotation += 1;
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	
