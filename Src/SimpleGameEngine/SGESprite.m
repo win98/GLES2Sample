@@ -92,12 +92,18 @@
 
 - (void) draw
 {
+	kmMat4 mvMatrix;
+	
+	kmGLGetMatrix(KM_GL_MODELVIEW, &mvMatrix);
+	glLoadMatrixf(mvMatrix.mat);
+	
+	glColor4f(self.color.red,
+			  self.color.green,
+			  self.color.blue,
+			  self.color.alpha);
+	
 	[self.spriteFrame.texture drawFrame:self.spriteFrame.textureSpaceFrame
-						withAnchorPoint:self.anchorPointInPoints
-								atPoint:self.position
-						   withRotation:self.rotation
-							 withScaleX:self.scaleX
-							 withScaleY:self.scaleY];
+						withAnchorPoint:self.anchorPointInPoints];
 }
 
 - (void) dealloc

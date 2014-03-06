@@ -299,6 +299,47 @@
 	glPopMatrix();
 }
 
+- (void) drawFrame:(CGRect)imageFrame withAnchorPoint:(CGPoint)anchorPoint
+{
+	float k = self.highDefinition ? 0.5f : 1.0f;
+	
+	GLfloat fWidth = imageFrame.size.width;
+	GLfloat fHeight = imageFrame.size.height;
+	GLfloat fx = imageFrame.origin.x;
+	GLfloat fy = imageFrame.origin.y;
+	
+	//Texture is directed upside-down.
+	//So invert frame too.
+	GLfloat		texCoordinates[] = {
+		fx, fy + fHeight,
+		fx + fWidth, fy + fWidth,
+		fx, fy,
+		fx + fWidth, fy
+	};
+	
+	GLfloat width = _width * fWidth * k;
+	GLfloat height = _height * fHeight * k;
+	
+	GLfloat left = -anchorPoint.x;
+	GLfloat right = width - anchorPoint.x;
+	GLfloat top = anchorPoint.y;
+	GLfloat bottom = -(height - anchorPoint.y);
+	
+	GLfloat vertices[] = {
+		left, bottom, 0,
+		right, bottom, 0,
+		left, top, 0,
+		right, top, 0
+	};
+	
+	
+	glBindTexture(GL_TEXTURE_2D, _name);
+	glVertexPointer(3, GL_FLOAT, 0, vertices);
+	glTexCoordPointer(2, GL_FLOAT, 0, texCoordinates);
+
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+}
+
 - (void) drawFrame:(CGRect)imageFrame withAnchorPoint:(CGPoint)anchorPoint atPoint:(CGPoint)destPoint
 	  withRotation:(float)rotAngle withScaleX:(float)scaleX withScaleY:(float)scaleY
 {

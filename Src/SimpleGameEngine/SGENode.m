@@ -8,7 +8,6 @@
 
 #import "SGENode.h"
 #import "SGELog.h"
-#import "SGEAffineTransformation.h"
 
 @implementation SGENode
 
@@ -77,7 +76,7 @@
 
 - (void) addChild:(SGENode*)child
 {
-	if([children containsObject:child]){
+	if(![children containsObject:child]){
 		
 		child.parent = self;
 		[children addObject:child];
@@ -89,7 +88,7 @@
 
 - (void) removeChild:(SGENode*)child
 {
-	if(![children containsObject:child]){
+	if([children containsObject:child]){
 		
 		child.parent = nil;
 		[children removeObject:child];
@@ -109,23 +108,34 @@
 	
 }
 
+- (void) transform
+{
+	kmGLTranslatef(self.position.x + self.anchorPointInPoints.x,
+				   -self.position.y - self.anchorPointInPoints.y,
+				   0);
+	kmGLRotatef(self.rotation, 0, 0, 1);
+	kmGLScalef(scaleX, scaleY, 1);
+}
+
 - (void) process
 {
 	if(!visible){
 		return;
 	}
 	
+	kmGLPushMatrix();
+	
+	[self transform];
+	[self draw];
+	
 	if(children.count){
-		
-		[self draw];
 		
 		for(SGENode *child in children){
 			[child process];
 		}
-	} else {
-		
-		[self draw];
 	}
+	
+	kmGLPopMatrix();
 }
 
 - (void) dealloc

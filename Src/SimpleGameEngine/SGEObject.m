@@ -10,11 +10,11 @@
 
 @implementation SGEUtils
 
-float randomf(float from, float to)
+float randomf(float n1, float n2)
 {
 	float k = (float)random() / (float)0x7FFFFFFF;
 	
-	return (to - from) * k + from;
+	return (n2 - n1) * k + n1;
 }
 
 @end

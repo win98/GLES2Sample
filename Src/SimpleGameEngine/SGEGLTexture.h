@@ -107,6 +107,7 @@ typedef enum {
 
 - (void) drawFrame:(CGRect)imageFrame withAnchorPoint:(CGPoint)anchorPoint atPoint:(CGPoint)destPoint
 	  withRotation:(float)rotAngle withScaleX:(float)scaleX withScaleY:(float)scaleY;
+- (void) drawFrame:(CGRect)imageFrame withAnchorPoint:(CGPoint)anchorPoint;
 @end
 
 /*

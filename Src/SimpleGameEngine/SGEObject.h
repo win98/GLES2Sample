@@ -10,7 +10,7 @@
 
 @interface SGEUtils : NSObject
 
-float randomf(float from, float to);
+float randomf(float n1, float n2);
 
 @end
 

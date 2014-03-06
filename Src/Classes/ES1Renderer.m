@@ -13,13 +13,17 @@
 
 #import "ES1Renderer.h"
 #import "SGESprite.h"
+#import "matrix.h"
 
 #define DEGREES_TO_RADIANS(__ANGLE) ((__ANGLE) / 180.0 * M_PI)
 
 @implementation ES1Renderer
 NSMutableArray *sprites;
 int k = 50;
-SGESprite *s1, *s2;
+SGENode *globalNode;
+SGESprite *s1, *s2, *s3;
+int km_mat4_stack_context_ref;
+
 // Create an ES 1.1 context
 - (id) init
 {
@@ -33,20 +37,40 @@ SGESprite *s1, *s2;
             return nil;
         }
 		
+		kmGLSetCurrentContext(&km_mat4_stack_context_ref);
+		kmGLMatrixMode(KM_GL_MODELVIEW);
+		kmGLLoadIdentity();
+		kmGLTranslatef(0, 1024, 0);
+		
 		srandom(time(0));
 		
 		SGEGLTexture *texture = [[[SGEGLTexture alloc]initWithImage:
 								  [UIImage imageNamed:@"atlas.png"]]autorelease];
 		SGESpriteFrame *sFrame = [[SGESpriteFrame alloc]initWithTexture:texture
 																  frame: CGRectMake(92, 92, 92, 92)
-															   rotation:0 name:@""];
-		s1 = [[SGESprite alloc]initWithSpriteFrame:sFrame];
-		s1.position = CGPointMake(50, 50 + s1.contentSize.height);
-		s1.anchorPoint = CGPointMake(0.5f, 0.5f);
-		s1.rotation = 45;
+															   rotation:0 name:@"pic"];
+		s2 = [SGESprite spriteWithSpriteFrame:sFrame];
+		s2.position = CGPointMake(-46, -46);
 		
-		s2 = [[SGESprite alloc]initFromImageFile:@"box2.png"];
-		s2.position = CGPointMake(768-s2.contentSize.width, 1024);
+		s1 = [[SGESprite alloc]initFromImageFile:@"box2.png"];
+		s1.position = CGPointMake(100, 100);
+		
+		SGESpriteFrame *sFrame2 = [[SGESpriteFrame alloc]initWithTexture:texture
+																  frame: CGRectMake(184, 184, 92, 92)
+															   rotation:0 name:@"pic"];
+		s3 = [SGESprite spriteWithSpriteFrame:sFrame2];
+		s3.position = CGPointMake(20, 20);
+		
+		[s1 addChild:s2];
+//		[s2 addChild:s3];
+		s2.color = SGEColorMake(1, 1, 1, 0.5f);
+		s2.scale = 1;
+		s1.scale = 0.5;
+		s2.anchorPoint = CGPointMake(0.5f, 0.5f);
+		
+		globalNode = [[SGENode alloc]initWithPosition:CGPointMake(0, 0)];
+		globalNode.contentSize = CGSizeMake(768, 1024);
+		[globalNode addChild:s1];
 		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);
@@ -110,8 +134,8 @@ SGESprite *s1, *s2;
 	
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	[s1 process];
-	[s2 process];
+	[globalNode process];
+	s2.rotation -= 1;
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	

@@ -7,6 +7,9 @@
 //
 
 #import "SGEObject.h"
+#import <OpenGLES/ES1/gl.h>
+#import "matrix.h"
+#import "SGEAffineTransformation.h"
 
 typedef struct _SGEColor{
 	float red;
@@ -21,6 +24,7 @@ static inline SGEColor SGEColorMake (float red, float green, float blue, float a
 	color.red = red;
 	color.green = green;
 	color.blue = blue;
+	color.alpha = alpha;
 	
 	return color;
 }
