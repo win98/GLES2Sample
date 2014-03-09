@@ -18,7 +18,7 @@
 {
     self = [super init];
     if (self) {
-        // Custom initialization
+		
 		self.view = [[UIView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     }
     return self;
@@ -27,23 +27,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-//
-//-(NSUInteger)supportedInterfaceOrientations
-//{
-//    return UIInterfaceOrientationMaskLandscape;
-//}
-//
-//-(BOOL)shouldAutorotate
-//{
-//    return YES;
-//}
+
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape;
+}
+
+-(BOOL)shouldAutorotate
+{
+    return YES;
+}
 
 @end

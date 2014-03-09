@@ -11,7 +11,7 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
+		28FD14FE0DC6FC130079059D /* SGEGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* SGEGLView.m */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		A5137FEE18C5451E00D999D3 /* atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = A5137FED18C5451E00D999D3 /* atlas.png */; };
@@ -33,10 +33,8 @@
 		A58F3E7018C280F8001C5619 /* SGEObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A58F3E6F18C280F8001C5619 /* SGEObject.m */; };
 		A58F3E7318C28130001C5619 /* SGENode.m in Sources */ = {isa = PBXBuildFile; fileRef = A58F3E7218C28130001C5619 /* SGENode.m */; };
 		A58F3E7D18C28574001C5619 /* SGELog.m in Sources */ = {isa = PBXBuildFile; fileRef = A58F3E7C18C28574001C5619 /* SGELog.m */; };
-		A58F3E8118C29E30001C5619 /* SGEAffineTransformation.m in Sources */ = {isa = PBXBuildFile; fileRef = A58F3E8018C29E30001C5619 /* SGEAffineTransformation.m */; };
-		A5927E4C187705AF00E121BE /* ES1Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5927E4B187705AF00E121BE /* ES1Renderer.m */; };
 		A5927E4F187712CE00E121BE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5927E4E187712CE00E121BE /* RootViewController.m */; };
-		A5927E52187713C000E121BE /* EAGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5927E51187713C000E121BE /* EAGLViewController.m */; };
+		A5927E52187713C000E121BE /* SGEGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5927E51187713C000E121BE /* SGEGLViewController.m */; };
 		A593E6B118C35BB5004BD9D7 /* SGEGLTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = A593E6B018C35BB5004BD9D7 /* SGEGLTexture.m */; };
 		A593E6B318C35C6B004BD9D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A593E6B218C35C6B004BD9D7 /* CoreGraphics.framework */; };
 		A593E6B618C35E1A004BD9D7 /* SGESprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A593E6B518C35E1A004BD9D7 /* SGESprite.m */; };
@@ -45,6 +43,9 @@
 		A593E6C218C369A9004BD9D7 /* SGEResourcesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = A593E6C118C369A9004BD9D7 /* SGEResourcesLoader.m */; };
 		A593E6C618C39796004BD9D7 /* apple_ex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A593E6C518C39796004BD9D7 /* apple_ex@2x.png */; };
 		A593E6C818C3DB02004BD9D7 /* box.png in Resources */ = {isa = PBXBuildFile; fileRef = A593E6C718C3DB02004BD9D7 /* box.png */; };
+		A5DE0BE218CCCB2700337891 /* SGEScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE0BE118CCCB2700337891 /* SGEScene.m */; };
+		A5DE0BE518CCD98A00337891 /* SGELayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE0BE418CCD98A00337891 /* SGELayer.m */; };
+		A5DE0BE818CCDA5D00337891 /* SGEGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE0BE718CCDA5D00337891 /* SGEGameController.m */; };
 		AF1AED3E101E69AD00EFB8CB /* matrix.c in Sources */ = {isa = PBXBuildFile; fileRef = AF1AED3C101E69AD00EFB8CB /* matrix.c */; };
 		AFC29B8911D56BC3006F150F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AFC29B8211D56BC3006F150F /* Icon-72.png */; };
 		AFC29B8A11D56BC3006F150F /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AFC29B8311D56BC3006F150F /* Icon-Small-50.png */; };
@@ -61,8 +62,8 @@
 		1D3623250D0F684500981E51 /* GLES2SampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES2SampleAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* GLES2Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLES2Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		28FD14FC0DC6FC130079059D /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
-		28FD14FD0DC6FC130079059D /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		28FD14FC0DC6FC130079059D /* SGEGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGEGLView.h; path = ../Classes/SGEGLView.h; sourceTree = "<group>"; };
+		28FD14FD0DC6FC130079059D /* SGEGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SGEGLView.m; path = ../Classes/SGEGLView.m; sourceTree = "<group>"; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -104,14 +105,10 @@
 		A58F3E7218C28130001C5619 /* SGENode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGENode.m; sourceTree = "<group>"; };
 		A58F3E7B18C28574001C5619 /* SGELog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGELog.h; sourceTree = "<group>"; };
 		A58F3E7C18C28574001C5619 /* SGELog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGELog.m; sourceTree = "<group>"; };
-		A58F3E7F18C29E30001C5619 /* SGEAffineTransformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEAffineTransformation.h; sourceTree = "<group>"; };
-		A58F3E8018C29E30001C5619 /* SGEAffineTransformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEAffineTransformation.m; sourceTree = "<group>"; };
-		A5927E4A187705AF00E121BE /* ES1Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES1Renderer.h; sourceTree = "<group>"; };
-		A5927E4B187705AF00E121BE /* ES1Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ES1Renderer.m; sourceTree = "<group>"; };
 		A5927E4D187712CE00E121BE /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		A5927E4E187712CE00E121BE /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		A5927E50187713C000E121BE /* EAGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLViewController.h; sourceTree = "<group>"; };
-		A5927E51187713C000E121BE /* EAGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLViewController.m; sourceTree = "<group>"; };
+		A5927E50187713C000E121BE /* SGEGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGEGLViewController.h; path = ../Classes/SGEGLViewController.h; sourceTree = "<group>"; };
+		A5927E51187713C000E121BE /* SGEGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SGEGLViewController.m; path = ../Classes/SGEGLViewController.m; sourceTree = "<group>"; };
 		A593E6AF18C35BB5004BD9D7 /* SGEGLTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEGLTexture.h; sourceTree = "<group>"; };
 		A593E6B018C35BB5004BD9D7 /* SGEGLTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEGLTexture.m; sourceTree = "<group>"; };
 		A593E6B218C35C6B004BD9D7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,6 +122,12 @@
 		A593E6C118C369A9004BD9D7 /* SGEResourcesLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEResourcesLoader.m; sourceTree = "<group>"; };
 		A593E6C518C39796004BD9D7 /* apple_ex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "apple_ex@2x.png"; path = "Resources/apple_ex@2x.png"; sourceTree = "<group>"; };
 		A593E6C718C3DB02004BD9D7 /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box.png; path = Resources/box.png; sourceTree = "<group>"; };
+		A5DE0BE018CCCB2700337891 /* SGEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEScene.h; sourceTree = "<group>"; };
+		A5DE0BE118CCCB2700337891 /* SGEScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEScene.m; sourceTree = "<group>"; };
+		A5DE0BE318CCD98A00337891 /* SGELayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGELayer.h; sourceTree = "<group>"; };
+		A5DE0BE418CCD98A00337891 /* SGELayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGELayer.m; sourceTree = "<group>"; };
+		A5DE0BE618CCDA5D00337891 /* SGEGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEGameController.h; sourceTree = "<group>"; };
+		A5DE0BE718CCDA5D00337891 /* SGEGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEGameController.m; sourceTree = "<group>"; };
 		AF1AED3C101E69AD00EFB8CB /* matrix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = matrix.c; path = Classes/matrix.c; sourceTree = "<group>"; };
 		AF1AED3D101E69AD00EFB8CB /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = matrix.h; path = Classes/matrix.h; sourceTree = "<group>"; };
 		AFC29B8211D56BC3006F150F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Images/Icon-72.png"; sourceTree = "<group>"; };
@@ -155,12 +158,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A5927E4A187705AF00E121BE /* ES1Renderer.h */,
-				A5927E4B187705AF00E121BE /* ES1Renderer.m */,
-				28FD14FC0DC6FC130079059D /* EAGLView.h */,
-				28FD14FD0DC6FC130079059D /* EAGLView.m */,
-				A5927E50187713C000E121BE /* EAGLViewController.h */,
-				A5927E51187713C000E121BE /* EAGLViewController.m */,
 				1D3623240D0F684500981E51 /* GLES2SampleAppDelegate.h */,
 				1D3623250D0F684500981E51 /* GLES2SampleAppDelegate.m */,
 				A5927E4D187712CE00E121BE /* RootViewController.h */,
@@ -290,12 +287,16 @@
 				A58F3E6F18C280F8001C5619 /* SGEObject.m */,
 				A58F3E7B18C28574001C5619 /* SGELog.h */,
 				A58F3E7C18C28574001C5619 /* SGELog.m */,
-				A58F3E7F18C29E30001C5619 /* SGEAffineTransformation.h */,
-				A58F3E8018C29E30001C5619 /* SGEAffineTransformation.m */,
 				A58F3E7118C28130001C5619 /* SGENode.h */,
 				A58F3E7218C28130001C5619 /* SGENode.m */,
 				A593E6B418C35E1A004BD9D7 /* SGESprite.h */,
 				A593E6B518C35E1A004BD9D7 /* SGESprite.m */,
+				A5DE0BE018CCCB2700337891 /* SGEScene.h */,
+				A5DE0BE118CCCB2700337891 /* SGEScene.m */,
+				A5DE0BE318CCD98A00337891 /* SGELayer.h */,
+				A5DE0BE418CCD98A00337891 /* SGELayer.m */,
+				A5DE0BE618CCDA5D00337891 /* SGEGameController.h */,
+				A5DE0BE718CCDA5D00337891 /* SGEGameController.m */,
 				A593E6B718C35F7B004BD9D7 /* SGESpriteFrame.h */,
 				A593E6B818C35F7B004BD9D7 /* SGESpriteFrame.m */,
 				A593E6AF18C35BB5004BD9D7 /* SGEGLTexture.h */,
@@ -304,6 +305,10 @@
 				A593E6BB18C3626E004BD9D7 /* SGEGLTextureAtlas.m */,
 				A593E6C018C369A9004BD9D7 /* SGEResourcesLoader.h */,
 				A593E6C118C369A9004BD9D7 /* SGEResourcesLoader.m */,
+				28FD14FC0DC6FC130079059D /* SGEGLView.h */,
+				28FD14FD0DC6FC130079059D /* SGEGLView.m */,
+				A5927E50187713C000E121BE /* SGEGLViewController.h */,
+				A5927E51187713C000E121BE /* SGEGLViewController.m */,
 				A54A7CBA18C7CE7100864144 /* 3dParty */,
 			);
 			path = SimpleGameEngine;
@@ -386,18 +391,19 @@
 				A54A7CDD18C7CE7100864144 /* mat3.c in Sources */,
 				A593E6C218C369A9004BD9D7 /* SGEResourcesLoader.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				A5927E4C187705AF00E121BE /* ES1Renderer.m in Sources */,
 				A5927E4F187712CE00E121BE /* RootViewController.m in Sources */,
 				A54A7CE118C7CE7100864144 /* ray2.c in Sources */,
 				A54A7CE518C7CE7100864144 /* vec3.c in Sources */,
 				A54A7CE018C7CE7100864144 /* quaternion.c in Sources */,
-				A5927E52187713C000E121BE /* EAGLViewController.m in Sources */,
+				A5DE0BE818CCDA5D00337891 /* SGEGameController.m in Sources */,
+				A5927E52187713C000E121BE /* SGEGLViewController.m in Sources */,
 				A593E6BC18C3626E004BD9D7 /* SGEGLTextureAtlas.m in Sources */,
 				A593E6B118C35BB5004BD9D7 /* SGEGLTexture.m in Sources */,
 				A58F3E7018C280F8001C5619 /* SGEObject.m in Sources */,
 				A54A7CDC18C7CE7100864144 /* aabb.c in Sources */,
-				A58F3E8118C29E30001C5619 /* SGEAffineTransformation.m in Sources */,
+				A5DE0BE218CCCB2700337891 /* SGEScene.m in Sources */,
 				1D3623260D0F684500981E51 /* GLES2SampleAppDelegate.m in Sources */,
+				A5DE0BE518CCD98A00337891 /* SGELayer.m in Sources */,
 				A58F3E7D18C28574001C5619 /* SGELog.m in Sources */,
 				A58F3E7318C28130001C5619 /* SGENode.m in Sources */,
 				A54A7CDF18C7CE7100864144 /* plane.c in Sources */,
@@ -406,7 +412,7 @@
 				A54A7CDB18C7CE7100864144 /* matrix.c in Sources */,
 				A54A7CE218C7CE7100864144 /* ray3.c in Sources */,
 				A54A7CDE18C7CE7100864144 /* mat4.c in Sources */,
-				28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */,
+				28FD14FE0DC6FC130079059D /* SGEGLView.m in Sources */,
 				A593E6B618C35E1A004BD9D7 /* SGESprite.m in Sources */,
 				AF1AED3E101E69AD00EFB8CB /* matrix.c in Sources */,
 			);
@@ -426,10 +432,10 @@
 				GCC_PREFIX_HEADER = GLES2Sample_Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "GLES2Sample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = GLES2Sample;
-				PROVISIONING_PROFILE = "A4374092-5A51-4F01-A786-71F00173EBD5";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "22A6C0FA-5373-49F9-8235-7FBD8B715F26";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -442,10 +448,10 @@
 				GCC_PREFIX_HEADER = GLES2Sample_Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "GLES2Sample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = GLES2Sample;
-				PROVISIONING_PROFILE = "A4374092-5A51-4F01-A786-71F00173EBD5";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "22A6C0FA-5373-49F9-8235-7FBD8B715F26";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -8,8 +8,8 @@
 
 #import "SGEObject.h"
 #import <OpenGLES/ES1/gl.h>
+#import <OpenGLES/ES1/glext.h>
 #import "matrix.h"
-#import "SGEAffineTransformation.h"
 
 typedef struct _SGEColor{
 	float red;

@@ -188,6 +188,17 @@
 
 - (void) tick:(float)dt
 {
+	[self update:dt];
+	
+	if([children count]){
+		for(SGENode *child in children){
+			[child update:dt];
+		}
+	}
+}
+
+- (void) update:(NSTimeInterval)dt
+{
 	
 }
 

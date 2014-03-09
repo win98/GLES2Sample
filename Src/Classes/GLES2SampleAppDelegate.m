@@ -47,14 +47,12 @@
 */
 
 #import "GLES2SampleAppDelegate.h"
-#import "EAGLView.h"
-#import "SGESprite.h"
+#import "SGEGameController.h"
 
 @implementation GLES2SampleAppDelegate
 
 @synthesize window;
 @synthesize rootViewController;
-@synthesize GLViewController;
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application
 {
@@ -62,35 +60,37 @@
 	
 	self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
 	self.rootViewController = [[[RootViewController alloc]init]autorelease];
-	[window addSubview:rootViewController.view];
-//	window.rootViewController = self.rootViewController;
+	
+	window.rootViewController = self.rootViewController;
 	[window makeKeyAndVisible];
 	
-	self.GLViewController = [[[EAGLViewController alloc]init]autorelease];
-	[rootViewController.view addSubview:GLViewController.view];
+	[self.rootViewController.view addSubview:
+		[SGEGameController sharedController].viewController.view];
+	[self.rootViewController addChildViewController:
+	 [SGEGameController sharedController].viewController];
 	
-	[self.GLViewController startAnimation];	
+	[[SGEGameController sharedController] start];
 }
 
-- (void) applicationWillResignActive:(UIApplication *)application
+- (void) applicationDidEnterBackground:(UIApplication *)application
 {
-	[self.GLViewController stopAnimation];
+	[[SGEGameController sharedController] stop];
 }
 
-- (void) applicationDidBecomeActive:(UIApplication *)application
+- (void) applicationWillEnterForeground:(UIApplication *)application
 {
-	[self.GLViewController startAnimation];
+	[[SGEGameController sharedController] start];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-	[self.GLViewController stopAnimation];
+	[[SGEGameController sharedController] stop];
 }
 
 - (void) dealloc
 {
 	self.window = nil;
-	self.GLViewController = nil;
+	self.rootViewController = nil;
 	
 	[super dealloc];
 }

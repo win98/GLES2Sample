@@ -48,16 +48,15 @@
 
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
-#import "EAGLViewController.h"
+#import "SGEGLViewController.h"
 
-@class EAGLView;
+@class SGEGLView;
 
 @interface GLES2SampleAppDelegate : NSObject <UIApplicationDelegate> {
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) RootViewController *rootViewController;
-@property (nonatomic, retain) EAGLViewController *GLViewController;
 
 @end
 
