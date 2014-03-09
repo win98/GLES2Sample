@@ -38,6 +38,7 @@ static inline SGEColor SGEColorMake (float red, float green, float blue, float a
 }
 
 @property(nonatomic) CGPoint position;
+@property(nonatomic) CGPoint center;
 @property(nonatomic) CGSize contentSize;
 @property(nonatomic) CGPoint anchorPoint;
 @property(nonatomic, readonly) CGPoint anchorPointInPoints;
@@ -49,9 +50,12 @@ static inline SGEColor SGEColorMake (float red, float green, float blue, float a
 @property(nonatomic) BOOL visible;
 @property(nonatomic, assign) SGENode *parent;
 @property(nonatomic) int z;
+@property(nonatomic) float alpha;
 @property(nonatomic, retain) NSMutableArray *children;
 
 - (id) initWithPosition:(CGPoint)pos;
+- (id) initWithPosition:(CGPoint)pos z:(int)z_;
+
 - (void) addChild:(SGENode*)child;
 - (void) removeChild:(SGENode*)child;
 

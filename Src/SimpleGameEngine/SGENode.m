@@ -23,6 +23,7 @@
 @synthesize visible;
 @synthesize parent;
 @synthesize z;
+@synthesize alpha;
 @synthesize children;
 
 - (id) init
@@ -53,6 +54,15 @@
 	if([self init]){
 		
 		self.position = pos;
+	}
+	
+	return self;
+}
+
+- (id) initWithPosition:(CGPoint)pos z:(int)z_
+{
+	if(self = [self initWithPosition:pos]){
+		z = z_;
 	}
 	
 	return self;
@@ -97,6 +107,18 @@
 	needToUpdatetransform = YES;
 }
 
+- (void) setCenter:(CGPoint)center_
+{
+	self.position = CGPointMake(self.position.x - self.contentSize.width / 2,
+								self.position.y - self.contentSize.height / 2);
+}
+
+- (CGPoint) center
+{
+	return CGPointMake(self.position.x - self.contentSize.width / 2,
+					   self.position.y - self.contentSize.height / 2);
+}
+
 - (void) setAnchorPoint:(CGPoint)anchorPoint_
 {
 	anchorPoint = anchorPoint_;
@@ -112,6 +134,24 @@
 	z = z_;
 	
 	needToSortChildren = YES;
+}
+
+- (void) setColor:(SGEColor)color_
+{
+	color = color_;
+	for(SGENode *child in self.children){
+		[child setColor:color_];
+	}
+}
+
+- (void) setAlpha:(float)alpha_
+{
+	alpha = alpha_;
+	
+	self.color = SGEColorMake(self.color.red,
+									self.color.green,
+									self.color.blue,
+									alpha_);
 }
 
 - (void) setRotation:(float)rotation_
@@ -155,8 +195,6 @@
 {
 	
 }
-
-//TODO: test sorting and implement color of children
 
 - (void) sortChildren
 {

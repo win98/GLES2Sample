@@ -56,6 +56,8 @@
 
 //CLASS IMPLEMENTATIONS:
 
+SGEGLTexture *currentTexture;
+
 @implementation SGEGLTexture
 
 @synthesize contentSize=_size, pixelFormat=_format, pixelsWide=_width, pixelsHigh=_height, name=_name, maxS=_maxS, maxT=_maxT;
@@ -332,8 +334,10 @@
 		right, top, 0
 	};
 	
-	
-	glBindTexture(GL_TEXTURE_2D, _name);
+	if(currentTexture != self){
+		glBindTexture(GL_TEXTURE_2D, _name);
+		currentTexture = self;
+	}
 	glVertexPointer(3, GL_FLOAT, 0, vertices);
 	glTexCoordPointer(2, GL_FLOAT, 0, texCoordinates);
 
