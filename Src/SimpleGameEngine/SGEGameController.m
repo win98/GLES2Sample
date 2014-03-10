@@ -10,6 +10,8 @@
 
 static SGEGameController *instance;
 
+static CGSize gameSceneSize;
+
 @interface SGEGameController()
 
 @property(nonatomic, retain) CADisplayLink *displayLink;
@@ -30,6 +32,16 @@ static SGEGameController *instance;
 	}
 	
 	return instance;
+}
+
++ (void) setGameSceneSize:(CGSize)size
+{
+	gameSceneSize = size;
+}
+
++ (CGSize)gameSceneSize
+{
+	return gameSceneSize;
 }
 
 - (id) init

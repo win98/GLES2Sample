@@ -28,7 +28,7 @@
 
 - (id) init
 {
-	if([super init]){
+	if(self = [super init]){
 		
 		children = [[NSMutableArray alloc]init];
 		
@@ -51,7 +51,7 @@
 
 - (id) initWithPosition:(CGPoint)pos
 {
-	if([self init]){
+	if(self = [self init]){
 		
 		self.position = pos;
 	}
@@ -71,8 +71,8 @@
 - (NSString*)description
 {
 	NSString *desc = [NSString stringWithFormat:
-		@"\n%@<0x%X>: parent = %@<0x%X>,\nposition = {%.2f, %.2f}, size = {%.2f, %.2f}",
-		[self class],(int)self, [parent class], (int)parent, position.x, position.y, contentSize.width, contentSize.height];
+		@"\n%@<%p>: parent = %@<%p>,\nposition = {%.2f, %.2f}, size = {%.2f, %.2f}",
+		[self class],self, [parent class], parent, position.x, position.y, contentSize.width, contentSize.height];
 	
 	return desc;
 }

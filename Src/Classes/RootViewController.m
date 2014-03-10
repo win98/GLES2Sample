@@ -16,11 +16,11 @@
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
 		
 		self.view = [[UIView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     }
+	
     return self;
 }
 

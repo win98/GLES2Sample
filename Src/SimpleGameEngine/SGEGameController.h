@@ -22,6 +22,10 @@
 @property(nonatomic, retain) SGEScene *scene;
 
 + (SGEGameController*) sharedController;
+
++ (void) setGameSceneSize:(CGSize)size;
++ (CGSize)gameSceneSize;
+
 - (void) start;
 - (void) stop;
 

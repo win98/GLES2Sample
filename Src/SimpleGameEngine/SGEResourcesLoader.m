@@ -16,7 +16,7 @@
 	SGESpriteFrame *sFrame = nil;
 	
 	NSString *name = [fileName lastPathComponent];
-	name = (NSString*)[[fileName componentsSeparatedByString:@"."]firstObject];
+	name = (NSString*)[[name componentsSeparatedByString:@"."]firstObject];
 	
 	UIImage *img = [UIImage imageNamed:fileName];
 	if(img){

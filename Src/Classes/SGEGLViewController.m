@@ -7,6 +7,7 @@
 //
 
 #import "SGEGLViewController.h"
+#import "SGEGameController.h"
 
 @interface SGEGLViewController ()
 
@@ -16,12 +17,12 @@
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
-		
-		CGRect bounds = CGRectMake(0, 0, 480, 320);
+    if (self = [super init]) {
+		CGSize size = [SGEGameController gameSceneSize];
+		CGRect bounds = CGRectMake(0, 0, size.width, size.height);
 		self.view = [[SGEGLView alloc] initWithFrame:bounds];
     }
+	
     return self;
 }
 

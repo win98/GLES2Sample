@@ -64,12 +64,24 @@
 	window.rootViewController = self.rootViewController;
 	[window makeKeyAndVisible];
 	
-	[self.rootViewController.view addSubview:
-		[SGEGameController sharedController].viewController.view];
-	[self.rootViewController addChildViewController:
-	 [SGEGameController sharedController].viewController];
+	CGSize size;
+	BOOL isIphone5 = NO;
 	
-	[[SGEGameController sharedController] start];
+	if(!isIphone5){
+		size = CGSizeMake(480, 320);
+	} else {
+		size = CGSizeMake(1136, 320);
+	}
+	
+	[SGEGameController setGameSceneSize:size];
+	SGEGameController *controller = [SGEGameController sharedController];
+	
+	[self.rootViewController.view addSubview:
+		controller.viewController.view];
+	[self.rootViewController addChildViewController:
+	 controller.viewController];
+	
+	[controller start];
 }
 
 - (void) applicationDidEnterBackground:(UIApplication *)application
