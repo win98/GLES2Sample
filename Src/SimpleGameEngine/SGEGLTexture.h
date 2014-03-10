@@ -92,6 +92,8 @@ typedef enum {
 @property(readonly) float height;
 @property BOOL highDefinition;
 
+@property(nonatomic, retain) NSString *textureFileName;
+
 @end
 
 /*

@@ -33,6 +33,14 @@
 	return [[[SGESpriteFrame alloc] initWithTexture:texture frame:frame rotation:rotation name:name]autorelease];
 }
 
+- (void) setTexture:(SGEGLTexture *)texture_
+{
+	texture = texture_;
+	
+	//this will cause recalculating textureSpaceFrame
+	self.frame = self.frame;
+}
+
 - (void) setFrame:(CGRect)frame_
 {
 	frame = frame_;

@@ -12,6 +12,8 @@ static SGEGameController *instance;
 
 static CGSize gameSceneSize;
 
+static Class gameSceneClass;
+
 @interface SGEGameController()
 
 @property(nonatomic, retain) CADisplayLink *displayLink;
@@ -39,6 +41,13 @@ static CGSize gameSceneSize;
 	gameSceneSize = size;
 }
 
++ (void) setGameSceneClass:(Class)class
+{
+	NSAssert([class isSubclassOfClass:[SGEScene class]], @"Class %@ is not subclass of SGEScene class", class);
+	
+	gameSceneClass = class;
+}
+
 + (CGSize)gameSceneSize
 {
 	return gameSceneSize;
@@ -48,7 +57,7 @@ static CGSize gameSceneSize;
 {
 	if(self = [super init]){
 		
-		self.scene = [[[SGEScene alloc]init]autorelease];
+		self.scene = [[[gameSceneClass alloc]init]autorelease];
 		
 		SGEGLViewController *vc = [[[SGEGLViewController alloc]init]autorelease];
 		[vc setTouchesDelegate:self.scene];

@@ -38,9 +38,16 @@
 		glBindFramebufferOES(GL_FRAMEBUFFER_OES, framebuffer);
 		glBindRenderbufferOES(GL_RENDERBUFFER_OES, renderbuffer);
 		glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, renderbuffer);
+		
+		[self prepare];
 	}
 	
 	return self;
+}
+
+- (void) prepare
+{
+	
 }
 
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer
@@ -92,7 +99,7 @@
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	
-	glClearColor(0.1, 0.1, 0.1, 1);
+	glClearColor(0, 0, 0, 0);
 }
 
 - (void) drawContent

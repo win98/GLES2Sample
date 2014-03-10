@@ -10,6 +10,8 @@
 
 @implementation SGEGLTextureAtlas
 
+@synthesize spriteFrames;
+
 - (id) initWithImage:(UIImage *)uiImage
 {
 	if(self = [super initWithImage:uiImage]){
@@ -17,6 +19,13 @@
 	}
 	
 	return self;
+}
+
+- (void) dealloc
+{
+	self.spriteFrames = nil;
+	
+	[super dealloc];
 }
 
 @end

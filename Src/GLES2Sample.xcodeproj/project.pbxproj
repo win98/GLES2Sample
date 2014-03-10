@@ -11,6 +11,9 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		28BC201D18CDE17A006E0FBF /* testAtlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28BC201B18CDE17A006E0FBF /* testAtlas.plist */; };
+		28BC201E18CDE17A006E0FBF /* testAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BC201C18CDE17A006E0FBF /* testAtlas.png */; };
+		28BC202118CDFF14006E0FBF /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BC202018CDFF14006E0FBF /* MyScene.m */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		A5137FEE18C5451E00D999D3 /* atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = A5137FED18C5451E00D999D3 /* atlas.png */; };
@@ -46,7 +49,6 @@
 		A5DE0BE818CCDA5D00337891 /* SGEGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE0BE718CCDA5D00337891 /* SGEGameController.m */; };
 		A5DE0BF018CD3CA300337891 /* SGEGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE0BED18CD3CA300337891 /* SGEGLView.m */; };
 		A5DE0BF118CD3CA300337891 /* SGEGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE0BEF18CD3CA300337891 /* SGEGLViewController.m */; };
-		AF1AED3E101E69AD00EFB8CB /* matrix.c in Sources */ = {isa = PBXBuildFile; fileRef = AF1AED3C101E69AD00EFB8CB /* matrix.c */; };
 		AFC29B8911D56BC3006F150F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AFC29B8211D56BC3006F150F /* Icon-72.png */; };
 		AFC29B8A11D56BC3006F150F /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AFC29B8311D56BC3006F150F /* Icon-Small-50.png */; };
 		AFC29B8B11D56BC3006F150F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = AFC29B8411D56BC3006F150F /* Icon-Small.png */; };
@@ -62,6 +64,10 @@
 		1D3623250D0F684500981E51 /* GLES2SampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES2SampleAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* GLES2Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLES2Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28BC201B18CDE17A006E0FBF /* testAtlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = testAtlas.plist; path = Resources/testAtlas.plist; sourceTree = "<group>"; };
+		28BC201C18CDE17A006E0FBF /* testAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = testAtlas.png; path = Resources/testAtlas.png; sourceTree = "<group>"; };
+		28BC201F18CDFF14006E0FBF /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
+		28BC202018CDFF14006E0FBF /* MyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -128,8 +134,6 @@
 		A5DE0BED18CD3CA300337891 /* SGEGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEGLView.m; sourceTree = "<group>"; };
 		A5DE0BEE18CD3CA300337891 /* SGEGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEGLViewController.h; sourceTree = "<group>"; };
 		A5DE0BEF18CD3CA300337891 /* SGEGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEGLViewController.m; sourceTree = "<group>"; };
-		AF1AED3C101E69AD00EFB8CB /* matrix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = matrix.c; path = Classes/matrix.c; sourceTree = "<group>"; };
-		AF1AED3D101E69AD00EFB8CB /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = matrix.h; path = Classes/matrix.h; sourceTree = "<group>"; };
 		AFC29B8211D56BC3006F150F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Images/Icon-72.png"; sourceTree = "<group>"; };
 		AFC29B8311D56BC3006F150F /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Images/Icon-Small-50.png"; sourceTree = "<group>"; };
 		AFC29B8411D56BC3006F150F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Images/Icon-Small.png"; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 				1D3623250D0F684500981E51 /* GLES2SampleAppDelegate.m */,
 				A5927E4D187712CE00E121BE /* RootViewController.h */,
 				A5927E4E187712CE00E121BE /* RootViewController.m */,
+				28BC201F18CDFF14006E0FBF /* MyScene.h */,
+				28BC202018CDFF14006E0FBF /* MyScene.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -190,8 +196,6 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				AF1AED3D101E69AD00EFB8CB /* matrix.h */,
-				AF1AED3C101E69AD00EFB8CB /* matrix.c */,
 				32CA4F630368D1EE00C91783 /* GLES2Sample_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -213,6 +217,8 @@
 				A593E6C718C3DB02004BD9D7 /* box.png */,
 				A5137FED18C5451E00D999D3 /* atlas.png */,
 				A5137FEF18C5545B00D999D3 /* box2.png */,
+				28BC201B18CDE17A006E0FBF /* testAtlas.plist */,
+				28BC201C18CDE17A006E0FBF /* testAtlas.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFC29B8911D56BC3006F150F /* Icon-72.png in Resources */,
+				28BC201D18CDE17A006E0FBF /* testAtlas.plist in Resources */,
 				A5137FEE18C5451E00D999D3 /* atlas.png in Resources */,
 				AFC29B8A11D56BC3006F150F /* Icon-Small-50.png in Resources */,
 				A593E6C618C39796004BD9D7 /* apple_ex@2x.png in Resources */,
@@ -375,6 +382,7 @@
 				AFC29B8D11D56BC3006F150F /* Icon.png in Resources */,
 				AFC29B8E11D56BC3006F150F /* Icon@2x.png in Resources */,
 				AFC29B8F11D56BC3006F150F /* iTunesArtwork in Resources */,
+				28BC201E18CDE17A006E0FBF /* testAtlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +399,7 @@
 				A54A7CDD18C7CE7100864144 /* mat3.c in Sources */,
 				A593E6C218C369A9004BD9D7 /* SGEResourcesLoader.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				28BC202118CDFF14006E0FBF /* MyScene.m in Sources */,
 				A5927E4F187712CE00E121BE /* RootViewController.m in Sources */,
 				A54A7CE118C7CE7100864144 /* ray2.c in Sources */,
 				A54A7CE518C7CE7100864144 /* vec3.c in Sources */,
@@ -414,7 +423,6 @@
 				A54A7CE218C7CE7100864144 /* ray3.c in Sources */,
 				A54A7CDE18C7CE7100864144 /* mat4.c in Sources */,
 				A593E6B618C35E1A004BD9D7 /* SGESprite.m in Sources */,
-				AF1AED3E101E69AD00EFB8CB /* matrix.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

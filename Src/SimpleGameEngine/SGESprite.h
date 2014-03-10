@@ -13,6 +13,7 @@
 @interface SGESprite : SGENode
 
 @property(nonatomic, retain) SGESpriteFrame *spriteFrame;
+@property(nonatomic, retain) SGEGLTexture *texture;
 
 //One image - one texture
 - (id) initFromImageFile:(NSString*)fileName;

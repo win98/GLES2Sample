@@ -14,7 +14,7 @@
 @property(nonatomic, retain) NSString *name;
 @property(nonatomic) CGRect frame;
 @property(nonatomic) float rotation;
-@property(nonatomic, retain) SGEGLTexture *texture;
+@property(nonatomic, assign) SGEGLTexture *texture;
 @property(nonatomic, readonly) CGRect textureSpaceFrame;
 
 - (id) initWithTexture:(SGEGLTexture*)texture frame:(CGRect)frame rotation:(float)rotation name:(NSString*)name;

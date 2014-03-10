@@ -48,6 +48,7 @@
 
 #import "GLES2SampleAppDelegate.h"
 #import "SGEGameController.h"
+#import "MyScene.h"
 
 @implementation GLES2SampleAppDelegate
 
@@ -73,6 +74,7 @@
 		size = CGSizeMake(1136, 320);
 	}
 	
+	[SGEGameController setGameSceneClass:[MyScene class]];
 	[SGEGameController setGameSceneSize:size];
 	SGEGameController *controller = [SGEGameController sharedController];
 	

@@ -12,11 +12,14 @@
 @implementation SGESprite
 
 @synthesize spriteFrame;
+@synthesize texture;
 
 - (id) initFromImageFile:(NSString*)fileName
 {
 	if(self = [super init]){
 		self.spriteFrame = [SGEResourcesLoader loadImageFile:fileName];
+		
+		self.texture = self.spriteFrame.texture;
 		
 		if(self.spriteFrame.texture.highDefinition){
 			
@@ -109,6 +112,7 @@
 - (void) dealloc
 {
 	self.spriteFrame = nil;
+	self.texture = nil;
 	
 	[super dealloc];
 }

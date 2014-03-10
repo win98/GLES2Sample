@@ -63,6 +63,7 @@ SGEGLTexture *currentTexture;
 @synthesize contentSize=_size, pixelFormat=_format, pixelsWide=_width, pixelsHigh=_height, name=_name, maxS=_maxS, maxT=_maxT;
 
 @synthesize highDefinition;
+@synthesize textureFileName;
 
 @dynamic width, height;
 

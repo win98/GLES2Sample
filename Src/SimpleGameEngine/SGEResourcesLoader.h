@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "SGESpriteFrame.h"
+#import "SGEGLTextureAtlas.h"
 
 @interface SGEResourcesLoader : UIImage
 
 + (SGESpriteFrame*) loadImageFile:(NSString*)fileName;
++ (SGEGLTextureAtlas*) loadTextureAtlas:(NSString*)fileName;
 
 @end
