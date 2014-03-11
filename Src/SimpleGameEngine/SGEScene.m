@@ -99,7 +99,7 @@
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	
-	glClearColor(0, 0, 0, 0);
+	glClearColor(0, 0, 0, 1);
 }
 
 - (void) drawContent

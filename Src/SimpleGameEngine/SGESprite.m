@@ -50,6 +50,8 @@
 		
 		self.spriteFrame = sFrame;
 		
+		self.texture = self.spriteFrame.texture;
+		
 		if(self.spriteFrame.texture.highDefinition){
 			
 			self.contentSize = CGSizeMake(spriteFrame.frame.size.width * 0.5f,
@@ -73,6 +75,26 @@
 	return self;
 }
 
+- (id) initWithSprite:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas
+{	if(self = [super init]){
+		
+		self.spriteFrame = atlas.spriteFrames[sprite];
+		
+		self.texture = self.spriteFrame.texture;
+		
+		if(self.spriteFrame.texture.highDefinition){
+			
+			self.contentSize = CGSizeMake(spriteFrame.frame.size.width * 0.5f,
+										  spriteFrame.frame.size.height * 0.5f);
+		} else {
+			
+			self.contentSize = spriteFrame.frame.size;
+		}
+	}
+	
+	return self;
+}
+
 + (id) spriteFromImageFile:(NSString*)fileName
 {
 	return [[[SGESprite alloc]initFromImageFile:fileName]autorelease];
@@ -91,6 +113,34 @@
 + (id) spriteWithSpriteFrame:(SGESpriteFrame*)sFrame position:(CGPoint)pos
 {
 	return [[[SGESprite alloc]initWithSpriteFrame:sFrame position:pos]autorelease];
+}
+
++ (id) spriteWithSprite:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas
+{
+	return [[[SGESprite alloc] initWithSprite:sprite atlas:atlas] autorelease];
+}
+
+- (void) setSpriteFrame:(SGESpriteFrame *)spriteFrame_
+{
+	[spriteFrame release];
+	spriteFrame = [spriteFrame_ retain];
+	
+	if(!spriteFrame){
+		return;
+	}
+	
+	self.texture = self.spriteFrame.texture;
+	
+	if(self.spriteFrame.texture.highDefinition){
+		
+		self.contentSize = CGSizeMake(spriteFrame.frame.size.width * 0.5f,
+									  spriteFrame.frame.size.height * 0.5f);
+	} else {
+		
+		self.contentSize = spriteFrame.frame.size;
+	}
+	
+	needToUpdatetransform = YES;
 }
 
 - (void) draw

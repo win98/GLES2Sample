@@ -9,6 +9,7 @@
 #import "SGENode.h"
 #import "SGEGLTexture.h"
 #import "SGESpriteFrame.h"
+#import "SGEGLTextureAtlas.h"
 
 @interface SGESprite : SGENode
 
@@ -22,12 +23,14 @@
 + (id) spriteFromImageFile:(NSString*)fileName;
 + (id) spriteFromImageFile:(NSString*)fileName position:(CGPoint)pos;
 
-
 //Image from texture atlas
 - (id) initWithSpriteFrame:(SGESpriteFrame*)sFrame;
 - (id) initWithSpriteFrame:(SGESpriteFrame*)sFrame position:(CGPoint)pos;
 
 + (id) spriteWithSpriteFrame:(SGESpriteFrame*)sFrame;
 + (id) spriteWithSpriteFrame:(SGESpriteFrame*)sFrame position:(CGPoint)pos;
+
+- (id) initWithSprite:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas;
++ (id) spriteWithSprite:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas;
 
 @end

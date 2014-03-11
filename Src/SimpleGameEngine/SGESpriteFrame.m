@@ -28,17 +28,9 @@
 	return self;
 }
 
-+ (id) spriteWithTexture:(SGEGLTexture*)texture frame:(CGRect)frame rotation:(float)rotation name:(NSString*)name
++ (id) spriteWithFrame:(CGRect)frame texture:(SGEGLTexture*)texture rotation:(float)rotation name:(NSString*)name
 {
 	return [[[SGESpriteFrame alloc] initWithTexture:texture frame:frame rotation:rotation name:name]autorelease];
-}
-
-- (void) setTexture:(SGEGLTexture *)texture_
-{
-	texture = texture_;
-	
-	//this will cause recalculating textureSpaceFrame
-	self.frame = self.frame;
 }
 
 - (void) setFrame:(CGRect)frame_

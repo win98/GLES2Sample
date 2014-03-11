@@ -19,6 +19,6 @@
 
 - (id) initWithTexture:(SGEGLTexture*)texture frame:(CGRect)frame rotation:(float)rotation name:(NSString*)name;
 
-+ (id) spriteWithTexture:(SGEGLTexture*)texture frame:(CGRect)frame rotation:(float)rotation name:(NSString*)name;
++ (id) spriteWithFrame:(CGRect)frame texture:(SGEGLTexture*)texture rotation:(float)rotation name:(NSString*)name;
 
 @end

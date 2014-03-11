@@ -315,7 +315,7 @@ SGEGLTexture *currentTexture;
 	//So invert frame too.
 	GLfloat		texCoordinates[] = {
 		fx, fy + fHeight,
-		fx + fWidth, fy + fWidth,
+		fx + fWidth, fy + fHeight,
 		fx, fy,
 		fx + fWidth, fy
 	};

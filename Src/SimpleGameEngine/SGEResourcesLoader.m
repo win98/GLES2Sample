@@ -34,13 +34,13 @@
 		CGRect frame = CGRectMake(0, 0,
 								  texture.contentSize.width, texture.contentSize.height);
 		
-		sFrame = [SGESpriteFrame spriteWithTexture:texture frame:frame rotation:0 name:name];
+		sFrame = [SGESpriteFrame spriteWithFrame:frame texture:texture rotation:0 name:name];
 	}
 	
 	return sFrame;
 }
 
-+ (SGESpriteFrame*) spriteFrameFromDictionary:(NSDictionary*)dic
++ (SGESpriteFrame*) spriteFrameFromDictionary:(NSDictionary*)dic name:(NSString*)name texture:(SGEGLTexture*)tex
 {
 	SGESpriteFrame *sFrame = nil;
 	
@@ -90,7 +90,7 @@
 	
 	//TODO: make sprites to work with offset
 	
-	sFrame = [SGESpriteFrame spriteWithTexture:nil frame:frame	rotation:angle name:nil];
+	sFrame = [SGESpriteFrame spriteWithFrame:frame texture:tex	rotation:angle name:name];
 	
 	return sFrame;
 }
@@ -127,9 +127,9 @@
 		
 		for(NSString *key in frames.allKeys){
 			
-			SGESpriteFrame *sFrame = [self spriteFrameFromDictionary:[frames objectForKey:key]];
-			sFrame.texture = atlas;
-			sFrame.name = [NSString stringWithString:key];
+			SGESpriteFrame *sFrame = [self spriteFrameFromDictionary:[frames objectForKey:key]
+																name:[NSString stringWithString:key]
+									  texture:atlas];
 			
 			[dic setObject:sFrame forKey:[NSString stringWithString:key]];
 		}

@@ -109,14 +109,14 @@
 
 - (void) setCenter:(CGPoint)center_
 {
-	self.position = CGPointMake(self.position.x - self.contentSize.width / 2,
-								self.position.y - self.contentSize.height / 2);
+	self.position = CGPointMake(center_.x - self.contentSize.width / 2,
+								center_.y - self.contentSize.height / 2);
 }
 
 - (CGPoint) center
 {
-	return CGPointMake(self.position.x - self.contentSize.width / 2,
-					   self.position.y - self.contentSize.height / 2);
+	return CGPointMake(self.position.x + self.contentSize.width / 2,
+					   self.position.y + self.contentSize.height / 2);
 }
 
 - (void) setAnchorPoint:(CGPoint)anchorPoint_
