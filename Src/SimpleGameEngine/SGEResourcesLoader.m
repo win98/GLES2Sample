@@ -27,14 +27,14 @@
 		
 		texture.textureFileName = [NSString stringWithFormat:@"%@.png", name];
 		
-		if([name hasSuffix:@"@2x"] || [name hasSuffix:@"-hd"] || [name hasSuffix:@"-HD"]){
+		if([name hasSuffix:@"-hd"] || [name hasSuffix:@"-HD"]){
 			texture.highDefinition = YES;
 		}
 		
 		CGRect frame = CGRectMake(0, 0,
 								  texture.contentSize.width, texture.contentSize.height);
 		
-		sFrame = [SGESpriteFrame spriteWithFrame:frame texture:texture rotation:0 name:name];
+		sFrame = [SGESpriteFrame spriteWithFrame:frame texture:texture rotation:0 name:texture.textureFileName];
 	}
 	
 	return sFrame;
@@ -109,7 +109,7 @@
 		
 		atlas = [[[SGEGLTextureAtlas alloc]initWithImage:img]autorelease];
 		
-		if([name hasSuffix:@"@2x"] || [name hasSuffix:@"-hd"] || [name hasSuffix:@"-HD"]){
+		if([name hasSuffix:@"-hd"] || [name hasSuffix:@"-HD"]){
 			atlas.highDefinition = YES;
 		}
 	}

@@ -10,9 +10,8 @@
 
 static SGEGameController *instance;
 
-static CGSize gameSceneSize;
-
 static Class gameSceneClass;
+
 
 @interface SGEGameController()
 
@@ -36,30 +35,23 @@ static Class gameSceneClass;
 	return instance;
 }
 
-+ (void) setGameSceneSize:(CGSize)size
-{
-	gameSceneSize = size;
-}
-
-+ (void) setGameSceneClass:(Class)class
-{
-	NSAssert([class isSubclassOfClass:[SGEScene class]], @"Class %@ is not subclass of SGEScene class", class);
-	
-	gameSceneClass = class;
-}
-
-+ (CGSize)gameSceneSize
-{
-	return gameSceneSize;
-}
-
 - (id) init
 {
 	if(self = [super init]){
 		
+		CGSize size = [SGEGameController screenSize];
+		scale = [[UIScreen mainScreen] scale];
+		
+		isRetina = (scale > 1.0f) ? YES : NO;
+		
 		self.scene = [[[gameSceneClass alloc]init]autorelease];
 		
-		SGEGLViewController *vc = [[[SGEGLViewController alloc]init]autorelease];
+		self.scene.contentSize = CGSizeMake(size.width * scale,
+											size.height * scale);
+		
+		SGEGLViewController *vc = [[[SGEGLViewController alloc]initWithFrame:
+									CGRectMake(0, 0, size.width, size.height)]autorelease];
+		[vc enableRetinaSupport:isRetina];
 		[vc setTouchesDelegate:self.scene];
 		[vc setMultiTouchEnabled:NO];
 		self.viewController = vc;
@@ -72,6 +64,54 @@ static Class gameSceneClass;
 	}
 	
 	return self;
+}
+
++ (void) setGameSceneClass:(Class)class
+{
+	NSAssert([class isSubclassOfClass:[SGEScene class]], @"Class %@ is not subclass of SGEScene class", class);
+	
+	gameSceneClass = class;
+}
+
+- (BOOL) isRetina
+{
+	return isRetina;
+}
+
+- (float) scale
+{
+	return scale;
+}
+
+- (CGSize)gameSceneSize
+{
+	return self.scene.contentSize;
+}
+
++ (CGSize)screenSize
+{
+	CGSize curSize = [[UIScreen mainScreen] bounds].size;
+	CGSize size;
+	
+	NSObject<UIApplicationDelegate> *dlg =
+	[[UIApplication sharedApplication] delegate];
+	
+	UIInterfaceOrientation or =	[[UIApplication sharedApplication]
+								 supportedInterfaceOrientationsForWindow:dlg.window];
+	
+	if(or & UIInterfaceOrientationMaskLandscapeLeft
+	|| or & UIInterfaceOrientationMaskLandscapeRight){
+		size = CGSizeMake(MAX(curSize.width, curSize.height),
+						  MIN(curSize.width, curSize.height));
+	}
+	
+	if(or & UIInterfaceOrientationMaskPortrait
+	|| or & UIInterfaceOrientationMaskPortraitUpsideDown){
+		size = CGSizeMake(MIN(curSize.width, curSize.height),
+						  MAX(curSize.width, curSize.height));
+	}
+	
+	return size;
 }
 
 - (void) dealloc

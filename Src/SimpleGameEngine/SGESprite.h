@@ -30,7 +30,7 @@
 + (id) spriteWithSpriteFrame:(SGESpriteFrame*)sFrame;
 + (id) spriteWithSpriteFrame:(SGESpriteFrame*)sFrame position:(CGPoint)pos;
 
-- (id) initWithSprite:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas;
-+ (id) spriteWithSprite:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas;
+- (id) initWithName:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas;
++ (id) spriteWithName:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas;
 
 @end

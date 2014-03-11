@@ -14,6 +14,9 @@
 {	
 	BOOL isAnimating;
 	
+	BOOL isRetina;
+	float scale;
+	
 	NSTimeInterval prevTime;
 }
 
@@ -24,8 +27,12 @@
 + (SGEGameController*) sharedController;
 
 + (void) setGameSceneClass:(Class)class;
-+ (void) setGameSceneSize:(CGSize)size;
-+ (CGSize)gameSceneSize;
+
++ (CGSize)screenSize;
+
+- (CGSize)gameSceneSize;
+- (BOOL) isRetina;
+- (float) scale;
 
 - (void) start;
 - (void) stop;

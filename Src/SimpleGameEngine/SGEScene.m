@@ -80,6 +80,11 @@
 	
 	glEnable(GL_DEPTH_TEST);
 	
+	GLfloat fLargest;
+	
+	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &fLargest);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, fLargest);
+	
 	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -99,7 +104,7 @@
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	
-	glClearColor(0, 0, 0, 1);
+	glClearColor(0.3, 0.3, 0.3, 1);
 }
 
 - (void) drawContent

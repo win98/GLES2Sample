@@ -17,18 +17,10 @@
 - (id) initFromImageFile:(NSString*)fileName
 {
 	if(self = [super init]){
+		
 		self.spriteFrame = [SGEResourcesLoader loadImageFile:fileName];
 		
 		self.texture = self.spriteFrame.texture;
-		
-		if(self.spriteFrame.texture.highDefinition){
-			
-			self.contentSize = CGSizeMake(spriteFrame.frame.size.width * 0.5f,
-										  spriteFrame.frame.size.height * 0.5f);
-		} else {
-			
-			self.contentSize = spriteFrame.frame.size;
-		}
 	}
 	
 	return self;
@@ -51,15 +43,6 @@
 		self.spriteFrame = sFrame;
 		
 		self.texture = self.spriteFrame.texture;
-		
-		if(self.spriteFrame.texture.highDefinition){
-			
-			self.contentSize = CGSizeMake(spriteFrame.frame.size.width * 0.5f,
-										  spriteFrame.frame.size.height * 0.5f);
-		} else {
-			
-			self.contentSize = spriteFrame.frame.size;
-		}
 	}
 	
 	return self;
@@ -75,21 +58,12 @@
 	return self;
 }
 
-- (id) initWithSprite:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas
+- (id) initWithName:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas
 {	if(self = [super init]){
 		
 		self.spriteFrame = atlas.spriteFrames[sprite];
 		
 		self.texture = self.spriteFrame.texture;
-		
-		if(self.spriteFrame.texture.highDefinition){
-			
-			self.contentSize = CGSizeMake(spriteFrame.frame.size.width * 0.5f,
-										  spriteFrame.frame.size.height * 0.5f);
-		} else {
-			
-			self.contentSize = spriteFrame.frame.size;
-		}
 	}
 	
 	return self;
@@ -115,9 +89,9 @@
 	return [[[SGESprite alloc]initWithSpriteFrame:sFrame position:pos]autorelease];
 }
 
-+ (id) spriteWithSprite:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas
++ (id) spriteWithName:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas
 {
-	return [[[SGESprite alloc] initWithSprite:sprite atlas:atlas] autorelease];
+	return [[[SGESprite alloc] initWithName:sprite atlas:atlas] autorelease];
 }
 
 - (void) setSpriteFrame:(SGESpriteFrame *)spriteFrame_
@@ -131,7 +105,7 @@
 	
 	self.texture = self.spriteFrame.texture;
 	
-	if(self.spriteFrame.texture.highDefinition){
+	if(!self.spriteFrame.texture.highDefinition){
 		
 		self.contentSize = CGSizeMake(spriteFrame.frame.size.width * 0.5f,
 									  spriteFrame.frame.size.height * 0.5f);

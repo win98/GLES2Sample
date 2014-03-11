@@ -65,17 +65,9 @@
 	window.rootViewController = self.rootViewController;
 	[window makeKeyAndVisible];
 	
-	CGSize size;
-	BOOL isIphone5 = NO;
 	
-	if(!isIphone5){
-		size = CGSizeMake(480, 320);
-	} else {
-		size = CGSizeMake(1136, 320);
-	}
-	
+	//Init Game Engine
 	[SGEGameController setGameSceneClass:[MyScene class]];
-	[SGEGameController setGameSceneSize:size];
 	SGEGameController *controller = [SGEGameController sharedController];
 	
 	[self.rootViewController.view addSubview:

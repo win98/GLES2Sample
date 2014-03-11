@@ -15,13 +15,12 @@
 
 @implementation SGEGLViewController
 
-- (id)init
+- (id)initWithFrame:(CGRect)frame
 {
     if (self = [super init]) {
-		CGSize size = [SGEGameController gameSceneSize];
-		CGRect bounds = CGRectMake(0, 0, size.width, size.height);
-		self.view = [[SGEGLView alloc] initWithFrame:bounds];
-    }
+		
+		self.view = [[SGEGLView alloc] initWithFrame:frame];
+	}
 	
     return self;
 }
@@ -34,6 +33,11 @@
 - (void) setMultiTouchEnabled:(BOOL)enabled
 {
 	self.view.multipleTouchEnabled = enabled;
+}
+
+- (void) enableRetinaSupport:(BOOL)enable
+{
+	self.view.contentScaleFactor = enable ? 2.0f : 1.0f;
 }
 
 @end

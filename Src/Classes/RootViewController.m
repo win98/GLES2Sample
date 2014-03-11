@@ -34,14 +34,4 @@
     [super didReceiveMemoryWarning];
 }
 
--(NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskLandscape;
-}
-
--(BOOL)shouldAutorotate
-{
-    return YES;
-}
-
 @end

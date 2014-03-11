@@ -11,7 +11,10 @@
 
 @interface SGEGLViewController : UIViewController
 
+- (id)initWithFrame:(CGRect)frame;
+
 - (void) setTouchesDelegate:(id)dlg;
 - (void) setMultiTouchEnabled:(BOOL)enabled;
+- (void) enableRetinaSupport:(BOOL)enable;
 
 @end

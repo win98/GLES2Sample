@@ -11,6 +11,8 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2873B52118CF436500702B2A /* apple_ex.png in Resources */ = {isa = PBXBuildFile; fileRef = 2873B52018CF436500702B2A /* apple_ex.png */; };
+		2873B52318CF495900702B2A /* apple_ex-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2873B52218CF495900702B2A /* apple_ex-hd.png */; };
 		28BC201D18CDE17A006E0FBF /* testAtlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28BC201B18CDE17A006E0FBF /* testAtlas.plist */; };
 		28BC201E18CDE17A006E0FBF /* testAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BC201C18CDE17A006E0FBF /* testAtlas.png */; };
 		28BC202118CDFF14006E0FBF /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BC202018CDFF14006E0FBF /* MyScene.m */; };
@@ -42,7 +44,6 @@
 		A593E6B918C35F7B004BD9D7 /* SGESpriteFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A593E6B818C35F7B004BD9D7 /* SGESpriteFrame.m */; };
 		A593E6BC18C3626E004BD9D7 /* SGEGLTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = A593E6BB18C3626E004BD9D7 /* SGEGLTextureAtlas.m */; };
 		A593E6C218C369A9004BD9D7 /* SGEResourcesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = A593E6C118C369A9004BD9D7 /* SGEResourcesLoader.m */; };
-		A593E6C618C39796004BD9D7 /* apple_ex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A593E6C518C39796004BD9D7 /* apple_ex@2x.png */; };
 		A593E6C818C3DB02004BD9D7 /* box.png in Resources */ = {isa = PBXBuildFile; fileRef = A593E6C718C3DB02004BD9D7 /* box.png */; };
 		A5DE0BE218CCCB2700337891 /* SGEScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE0BE118CCCB2700337891 /* SGEScene.m */; };
 		A5DE0BE518CCD98A00337891 /* SGELayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE0BE418CCD98A00337891 /* SGELayer.m */; };
@@ -64,6 +65,8 @@
 		1D3623250D0F684500981E51 /* GLES2SampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES2SampleAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* GLES2Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLES2Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2873B52018CF436500702B2A /* apple_ex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apple_ex.png; path = Resources/apple_ex.png; sourceTree = "<group>"; };
+		2873B52218CF495900702B2A /* apple_ex-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "apple_ex-hd.png"; path = "Resources/apple_ex-hd.png"; sourceTree = "<group>"; };
 		28BC201B18CDE17A006E0FBF /* testAtlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = testAtlas.plist; path = Resources/testAtlas.plist; sourceTree = "<group>"; };
 		28BC201C18CDE17A006E0FBF /* testAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = testAtlas.png; path = Resources/testAtlas.png; sourceTree = "<group>"; };
 		28BC201F18CDFF14006E0FBF /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
@@ -122,7 +125,6 @@
 		A593E6BB18C3626E004BD9D7 /* SGEGLTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEGLTextureAtlas.m; sourceTree = "<group>"; };
 		A593E6C018C369A9004BD9D7 /* SGEResourcesLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEResourcesLoader.h; sourceTree = "<group>"; };
 		A593E6C118C369A9004BD9D7 /* SGEResourcesLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEResourcesLoader.m; sourceTree = "<group>"; };
-		A593E6C518C39796004BD9D7 /* apple_ex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "apple_ex@2x.png"; path = "Resources/apple_ex@2x.png"; sourceTree = "<group>"; };
 		A593E6C718C3DB02004BD9D7 /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box.png; path = Resources/box.png; sourceTree = "<group>"; };
 		A5DE0BE018CCCB2700337891 /* SGEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEScene.h; sourceTree = "<group>"; };
 		A5DE0BE118CCCB2700337891 /* SGEScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEScene.m; sourceTree = "<group>"; };
@@ -213,7 +215,8 @@
 				AFC29B8711D56BC3006F150F /* Icon@2x.png */,
 				AFC29B8811D56BC3006F150F /* iTunesArtwork */,
 				8D1107310486CEB800E47090 /* GLES2Sample-Info.plist */,
-				A593E6C518C39796004BD9D7 /* apple_ex@2x.png */,
+				2873B52018CF436500702B2A /* apple_ex.png */,
+				2873B52218CF495900702B2A /* apple_ex-hd.png */,
 				A593E6C718C3DB02004BD9D7 /* box.png */,
 				A5137FED18C5451E00D999D3 /* atlas.png */,
 				A5137FEF18C5545B00D999D3 /* box2.png */,
@@ -373,10 +376,11 @@
 				28BC201D18CDE17A006E0FBF /* testAtlas.plist in Resources */,
 				A5137FEE18C5451E00D999D3 /* atlas.png in Resources */,
 				AFC29B8A11D56BC3006F150F /* Icon-Small-50.png in Resources */,
-				A593E6C618C39796004BD9D7 /* apple_ex@2x.png in Resources */,
 				A5137FF018C5545B00D999D3 /* box2.png in Resources */,
+				2873B52118CF436500702B2A /* apple_ex.png in Resources */,
 				A593E6C818C3DB02004BD9D7 /* box.png in Resources */,
 				AFC29B8B11D56BC3006F150F /* Icon-Small.png in Resources */,
+				2873B52318CF495900702B2A /* apple_ex-hd.png in Resources */,
 				AFC29B8C11D56BC3006F150F /* Icon-Small@2x.png in Resources */,
 				A54A7CD918C7CE7100864144 /* CMakeLists.txt in Resources */,
 				AFC29B8D11D56BC3006F150F /* Icon.png in Resources */,
@@ -442,8 +446,8 @@
 				INFOPLIST_FILE = "GLES2Sample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = GLES2Sample;
-				PROVISIONING_PROFILE = "22A6C0FA-5373-49F9-8235-7FBD8B715F26";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "A4374092-5A51-4F01-A786-71F00173EBD5";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -458,8 +462,8 @@
 				INFOPLIST_FILE = "GLES2Sample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = GLES2Sample;
-				PROVISIONING_PROFILE = "22A6C0FA-5373-49F9-8235-7FBD8B715F26";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "A4374092-5A51-4F01-A786-71F00173EBD5";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
