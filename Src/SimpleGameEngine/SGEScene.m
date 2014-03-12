@@ -39,7 +39,8 @@
 		glBindRenderbufferOES(GL_RENDERBUFFER_OES, renderbuffer);
 		glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, renderbuffer);
 		
-		[self prepare];
+		//Call customization on next cycle
+		[self performSelector:@selector(prepare) withObject:nil afterDelay:0.0f];
 	}
 	
 	return self;
@@ -127,6 +128,8 @@
 
 - (void) dealloc
 {
+	[NSObject cancelPreviousPerformRequestsWithTarget:self];
+	
 	if (framebuffer)
 	{
 		glDeleteFramebuffersOES(1, &framebuffer);

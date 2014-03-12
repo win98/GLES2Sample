@@ -302,14 +302,12 @@ SGEGLTexture *currentTexture;
 	glPopMatrix();
 }
 
-- (void) drawFrame:(CGRect)imageFrame withAnchorPoint:(CGPoint)anchorPoint
+- (void) drawFrame:(CGRect)texFrame inRectWithSize:(CGSize)size withAnchorPoint:(CGPoint)anchorPoint
 {
-	float k = self.highDefinition ? 0.5f : 1.0f;
-	
-	GLfloat fWidth = imageFrame.size.width;
-	GLfloat fHeight = imageFrame.size.height;
-	GLfloat fx = imageFrame.origin.x;
-	GLfloat fy = imageFrame.origin.y;
+	GLfloat fWidth = texFrame.size.width;
+	GLfloat fHeight = texFrame.size.height;
+	GLfloat fx = texFrame.origin.x;
+	GLfloat fy = texFrame.origin.y;
 	
 	//Texture is directed upside-down.
 	//So invert frame too.
@@ -320,8 +318,8 @@ SGEGLTexture *currentTexture;
 		fx + fWidth, fy
 	};
 	
-	GLfloat width = _width * fWidth * k;
-	GLfloat height = _height * fHeight * k;
+	GLfloat width = size.width;
+	GLfloat height = size.height;
 	
 	GLfloat left = -anchorPoint.x;
 	GLfloat right = width - anchorPoint.x;

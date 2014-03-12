@@ -9,6 +9,14 @@
 #import "SGEObject.h"
 #import "SGEGLTexture.h"
 
+typedef struct _plistData{
+	CGRect frame;
+	CGPoint offset;
+	BOOL rotated;
+	CGRect sourceColorRect;
+	CGSize sourceSize;
+}plistData;
+
 @interface SGESpriteFrame : SGEObject
 
 @property(nonatomic, retain) NSString *name;
@@ -16,6 +24,7 @@
 @property(nonatomic) float rotation;
 @property(nonatomic, assign) SGEGLTexture *texture;
 @property(nonatomic, readonly) CGRect textureSpaceFrame;
+@property(nonatomic) plistData spriteData;
 
 - (id) initWithTexture:(SGEGLTexture*)texture frame:(CGRect)frame rotation:(float)rotation name:(NSString*)name;
 

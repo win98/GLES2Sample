@@ -20,6 +20,10 @@
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		A5137FEE18C5451E00D999D3 /* atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = A5137FED18C5451E00D999D3 /* atlas.png */; };
 		A5137FF018C5545B00D999D3 /* box2.png in Resources */ = {isa = PBXBuildFile; fileRef = A5137FEF18C5545B00D999D3 /* box2.png */; };
+		A549B1A418CFC148006F7CDD /* back1.png in Resources */ = {isa = PBXBuildFile; fileRef = A549B1A218CFC148006F7CDD /* back1.png */; };
+		A549B1A518CFC148006F7CDD /* back2.png in Resources */ = {isa = PBXBuildFile; fileRef = A549B1A318CFC148006F7CDD /* back2.png */; };
+		A549B1A918CFDAA9006F7CDD /* oceanSingletons-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = A549B1A718CFDAA9006F7CDD /* oceanSingletons-hd.plist */; };
+		A549B1AA18CFDAA9006F7CDD /* oceanSingletons-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = A549B1A818CFDAA9006F7CDD /* oceanSingletons-hd.png */; };
 		A54A7CD918C7CE7100864144 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = A54A7CBC18C7CE7100864144 /* CMakeLists.txt */; };
 		A54A7CDA18C7CE7100864144 /* mat4stack.c in Sources */ = {isa = PBXBuildFile; fileRef = A54A7CBE18C7CE7100864144 /* mat4stack.c */; };
 		A54A7CDB18C7CE7100864144 /* matrix.c in Sources */ = {isa = PBXBuildFile; fileRef = A54A7CC018C7CE7100864144 /* matrix.c */; };
@@ -78,6 +82,10 @@
 		8D1107310486CEB800E47090 /* GLES2Sample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GLES2Sample-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A5137FED18C5451E00D999D3 /* atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = atlas.png; path = Resources/atlas.png; sourceTree = "<group>"; };
 		A5137FEF18C5545B00D999D3 /* box2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box2.png; path = Resources/box2.png; sourceTree = "<group>"; };
+		A549B1A218CFC148006F7CDD /* back1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back1.png; path = Resources/back1.png; sourceTree = "<group>"; };
+		A549B1A318CFC148006F7CDD /* back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back2.png; path = Resources/back2.png; sourceTree = "<group>"; };
+		A549B1A718CFDAA9006F7CDD /* oceanSingletons-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "oceanSingletons-hd.plist"; path = "Resources/oceanSingletons-hd.plist"; sourceTree = "<group>"; };
+		A549B1A818CFDAA9006F7CDD /* oceanSingletons-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "oceanSingletons-hd.png"; path = "Resources/oceanSingletons-hd.png"; sourceTree = "<group>"; };
 		A54A7CBC18C7CE7100864144 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		A54A7CBE18C7CE7100864144 /* mat4stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mat4stack.c; sourceTree = "<group>"; };
 		A54A7CBF18C7CE7100864144 /* mat4stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mat4stack.h; sourceTree = "<group>"; };
@@ -222,6 +230,10 @@
 				A5137FEF18C5545B00D999D3 /* box2.png */,
 				28BC201B18CDE17A006E0FBF /* testAtlas.plist */,
 				28BC201C18CDE17A006E0FBF /* testAtlas.png */,
+				A549B1A218CFC148006F7CDD /* back1.png */,
+				A549B1A318CFC148006F7CDD /* back2.png */,
+				A549B1A718CFDAA9006F7CDD /* oceanSingletons-hd.plist */,
+				A549B1A818CFDAA9006F7CDD /* oceanSingletons-hd.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -384,8 +396,12 @@
 				AFC29B8C11D56BC3006F150F /* Icon-Small@2x.png in Resources */,
 				A54A7CD918C7CE7100864144 /* CMakeLists.txt in Resources */,
 				AFC29B8D11D56BC3006F150F /* Icon.png in Resources */,
+				A549B1A518CFC148006F7CDD /* back2.png in Resources */,
+				A549B1A918CFDAA9006F7CDD /* oceanSingletons-hd.plist in Resources */,
 				AFC29B8E11D56BC3006F150F /* Icon@2x.png in Resources */,
+				A549B1AA18CFDAA9006F7CDD /* oceanSingletons-hd.png in Resources */,
 				AFC29B8F11D56BC3006F150F /* iTunesArtwork in Resources */,
+				A549B1A418CFC148006F7CDD /* back1.png in Resources */,
 				28BC201E18CDE17A006E0FBF /* testAtlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,7 +462,7 @@
 				INFOPLIST_FILE = "GLES2Sample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = GLES2Sample;
-				PROVISIONING_PROFILE = "A4374092-5A51-4F01-A786-71F00173EBD5";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -462,7 +478,7 @@
 				INFOPLIST_FILE = "GLES2Sample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = GLES2Sample;
-				PROVISIONING_PROFILE = "A4374092-5A51-4F01-A786-71F00173EBD5";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

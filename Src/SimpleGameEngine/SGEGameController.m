@@ -128,8 +128,11 @@ static Class gameSceneClass;
 {
 	NSTimeInterval curTime = [NSDate timeIntervalSinceReferenceDate];
 	
+	NSTimeInterval t1 = [NSDate timeIntervalSinceReferenceDate];
 	[self.scene tick:(curTime - prevTime)];
 	[self.scene drawContent];
+	NSTimeInterval t2 = [NSDate timeIntervalSinceReferenceDate];
+	NSLog(@"Render time:%f", t2-t1);
 	
 	prevTime = curTime;
 }

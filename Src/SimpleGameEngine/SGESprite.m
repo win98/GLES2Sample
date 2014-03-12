@@ -8,6 +8,7 @@
 
 #import "SGESprite.h"
 #import "SGEResourcesLoader.h"
+#import "SGEGameController.h"
 
 @implementation SGESprite
 
@@ -105,14 +106,29 @@
 	
 	self.texture = self.spriteFrame.texture;
 	
-	if(!self.spriteFrame.texture.highDefinition){
+	BOOL isRetina = [[SGEGameController sharedController] isRetina];
+	
+	float sizeFactor = 1.0f;
+	
+	if(isRetina){
 		
-		self.contentSize = CGSizeMake(spriteFrame.frame.size.width * 0.5f,
-									  spriteFrame.frame.size.height * 0.5f);
+		
+		if(self.texture.highDefinition){
+			sizeFactor = 1.0f;
+		} else {
+			sizeFactor = 2.0f;
+		}
 	} else {
 		
-		self.contentSize = spriteFrame.frame.size;
+		if(self.texture.highDefinition){
+			sizeFactor = 0.5f;
+		} else {
+			sizeFactor = 1.0f;
+		}
 	}
+	
+	self.contentSize = CGSizeMake(spriteFrame.frame.size.width * sizeFactor,
+								  spriteFrame.frame.size.height * sizeFactor);
 	
 	needToUpdatetransform = YES;
 }
@@ -130,6 +146,7 @@
 			  self.color.alpha);
 	
 	[self.spriteFrame.texture drawFrame:self.spriteFrame.textureSpaceFrame
+							inRectWithSize:self.contentSize
 						withAnchorPoint:self.anchorPointInPoints];
 }
 

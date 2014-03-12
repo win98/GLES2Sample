@@ -83,14 +83,18 @@
 	arr = [str componentsSeparatedByCharactersInSet:
 		   [NSCharacterSet characterSetWithCharactersInString:@",{}"]];
 	//
-	sourceSize = CGSizeMake(((NSString*)arr[2]).floatValue,
+	sourceSize = CGSizeMake(((NSString*)arr[1]).floatValue,
 							((NSString*)arr[2]).floatValue);
 	
-	float angle = rotated ? -90 : 0;
-	
 	//TODO: make sprites to work with offset
+	plistData data;
+	data.frame = frame;
+	data.offset = offset;
+	data.rotated = rotated;
+	data.sourceColorRect = sourceColorRect;
+	data.sourceSize = sourceSize;
 	
-	sFrame = [SGESpriteFrame spriteWithFrame:frame texture:tex	rotation:angle name:name];
+	sFrame = [SGESpriteFrame spriteFrameWithData:data];
 	
 	return sFrame;
 }

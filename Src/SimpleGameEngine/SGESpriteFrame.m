@@ -15,6 +15,7 @@
 @synthesize rotation;
 @synthesize texture;
 @synthesize textureSpaceFrame;
+@synthesize spriteData;
 
 - (id) initWithTexture:(SGEGLTexture*)texture_ frame:(CGRect)frame_ rotation:(float)rotation_ name:(NSString*)name_
 {
