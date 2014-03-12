@@ -19,12 +19,18 @@ int play = 0;
 float prevx;
 float dx = 0;
 
+//TODO  -Animation class
+//		-Layers
+//		-Camera
+//		-Font(!)
+//		-Buttons(!)
+
 - (void) prepare
 {	
 	SGEGLTextureAtlas *atlas = [[SGEResourcesLoader loadTextureAtlas:@"oceanSingletons-hd.png"]retain];
 	
 	back = [SGESprite spriteFromImageFile:@"back1.png"];
-	back2 = [SGESprite spriteFromImageFile:@"back2.png"];
+	back2 = [SGESprite spriteFromImageFile:@"back1.png"];
 	
 	s1 = [SGESprite spriteWithName:@"osingleton1.png" atlas:atlas];
 	s2 = [SGESprite spriteWithName:@"osingleton2.png" atlas:atlas];
@@ -36,11 +42,11 @@ float dx = 0;
 	[self addChild:back];
 	[self addChild:back2];
 	back.position = mp(-back.contentSize.width, 0);
-//	[self addChild:s1];
-	s1.center = mp(self.center.x, self.center.y);
-	s1.anchorPoint = mp(0.5f, 0.5f);
+	[self addChild:s1];
+//	s1.center = mp(self.center.x, self.center.y);
+	s1.anchorPoint = mp(1, 1);
 //	s1.scale = 0.5f;
-	[s1 addChild:s2];
+//	[s1 addChild:s2];
 	[s2 addChild:s3];
 	[s3 addChild:s4];
 	[s4 addChild:s5];
@@ -59,6 +65,8 @@ float dx = 0;
 	if(back2.position.x >= self.contentSize.width){
 		back2.position = mp(- back2.contentSize.width, 0);
 	}
+	
+	s1.rotation += 45 * dt;
 	
 	dx = 0;
 }

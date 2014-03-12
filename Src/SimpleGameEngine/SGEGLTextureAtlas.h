@@ -9,9 +9,6 @@
 #import "SGEGLTexture.h"
 
 @interface SGEGLTextureAtlas : SGEGLTexture
-{
-	
-}
 
 @property(nonatomic, retain) NSDictionary *spriteFrames;
 

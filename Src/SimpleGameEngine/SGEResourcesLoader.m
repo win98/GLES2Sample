@@ -8,6 +8,7 @@
 
 #import "SGEResourcesLoader.h"
 #import "SGEGLTexture.h"
+#import "SGEGameController.h"
 
 @implementation SGEResourcesLoader
 
@@ -17,9 +18,34 @@
 	
 	NSString *name = [fileName lastPathComponent];
 	name = (NSString*)[[name componentsSeparatedByString:@"."]firstObject];
+	if([name hasSuffix:@"-hd"] || [name hasSuffix:@"-HD"]){
+		name = [name stringByReplacingCharactersInRange:NSMakeRange(name.length-3, 3)
+											 withString:@""];
+	}
 	
-	UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", name]];
-	NSAssert(img, @"Image not found:", name);
+	UIImage *img = nil;
+	
+	if([[SGEGameController sharedController] isRetina]){
+		
+		//Try to get -hd for Retina screen. If not - try to get sd
+		NSString *fName = [name stringByAppendingString:@"-hd"];
+		img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", fName]];
+		if(img){
+			name = [name stringByAppendingString:@"-hd"];
+		} else {
+			img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", name]];
+		}
+	} else {
+		
+		//Try to get sd for non-retina screen. If not - try to get hd
+		img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", name]];
+		if(!img){
+			name = [name stringByAppendingString:@"-hd"];
+			img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", name]];
+		}
+	}
+	
+	NSAssert(img, @"Image not found:", fileName);
 	
 	if(img){
 		
@@ -112,9 +138,34 @@
 	
 	NSString *name = [fileName lastPathComponent];
 	name = (NSString*)[[name componentsSeparatedByString:@"."]firstObject];
+	if([name hasSuffix:@"-hd"] || [name hasSuffix:@"-HD"]){
+		name = [name stringByReplacingCharactersInRange:NSMakeRange(name.length-3, 3)
+											 withString:@""];
+	}
 	
-	UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", name]];
-	NSAssert(img, @"Image not found:", name);
+	UIImage *img = nil;
+	
+	if([[SGEGameController sharedController] isRetina]){
+		
+		//Try to get -hd for Retina screen. If not - try to get sd
+		NSString *fName = [name stringByAppendingString:@"-hd"];
+		img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", fName]];
+		if(img){
+			name = [name stringByAppendingString:@"-hd"];
+		} else {
+			img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", name]];
+		}
+	} else {
+		
+		//Try to get sd for non-retina screen. If not - try to get hd
+		img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", name]];
+		if(!img){
+			name = [name stringByAppendingString:@"-hd"];
+			img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", name]];
+		}
+	}
+	
+	NSAssert(img, @"Image not found:", fileName);
 	
 	if(img){
 		
@@ -128,7 +179,7 @@
 	NSString *path = [[NSBundle mainBundle]pathForResource:name ofType:@"plist"];
 	
 	NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:path];
-	NSAssert(plist, @"Incorrect plist format:", name);
+	NSAssert(plist, @"No plist or incorrect plist format:", name);
 	
 	if(plist){
 		

@@ -18,11 +18,15 @@
 	float scale;
 	
 	NSTimeInterval prevTime;
+	
+	NSTimeInterval averageDeltaTime;
 }
 
 @property(nonatomic, retain) SGEGLViewController *viewController;
 @property(nonatomic) int screenFrameInterval;
 @property(nonatomic, retain) SGEScene *scene;
+@property(nonatomic, readonly) NSTimeInterval sceneProcessingTime;
+@property(nonatomic, readonly) NSTimeInterval sceneDrawingTime;
 
 + (SGEGameController*) sharedController;
 

@@ -24,6 +24,8 @@ static Class gameSceneClass;
 @synthesize viewController;
 @synthesize screenFrameInterval;
 @synthesize scene;
+@synthesize sceneProcessingTime;
+@synthesize sceneDrawingTime;
 
 + (SGEGameController*) sharedController
 {
@@ -57,6 +59,9 @@ static Class gameSceneClass;
 		self.viewController = vc;
 		
 		screenFrameInterval = 1;
+		
+		averageDeltaTime = screenFrameInterval / 60.0f;
+		
 		self.displayLink = nil;
 		isAnimating = NO;
 		
@@ -128,11 +133,19 @@ static Class gameSceneClass;
 {
 	NSTimeInterval curTime = [NSDate timeIntervalSinceReferenceDate];
 	
+	float dt = MIN(curTime - prevTime, averageDeltaTime);
+	
 	NSTimeInterval t1 = [NSDate timeIntervalSinceReferenceDate];
-	[self.scene tick:curTime - prevTime];
-	[self.scene drawContent];
+	
+	[self.scene tick:dt];
+	
 	NSTimeInterval t2 = [NSDate timeIntervalSinceReferenceDate];
-	NSLog(@"Render time:%f", t2-t1);
+	sceneProcessingTime = t2 - t1;
+	
+	[self.scene drawContent];
+	
+	t1 = [NSDate timeIntervalSinceReferenceDate];
+	sceneDrawingTime = t1 - t2;
 	
 	prevTime = curTime;
 }
@@ -141,6 +154,8 @@ static Class gameSceneClass;
 {
 	if(interval >= 1){
 		screenFrameInterval = interval;
+		
+		averageDeltaTime = interval / 60.0f;
 		
 		if(isAnimating){
 			[self stop];

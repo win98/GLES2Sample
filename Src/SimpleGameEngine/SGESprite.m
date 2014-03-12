@@ -113,8 +113,7 @@
 	float sizeFactor = 1.0f;
 	
 	if(isRetina){
-		
-		
+				
 		if(self.texture.highDefinition){
 			sizeFactor = 1.0f;
 		} else {
@@ -151,10 +150,10 @@
 	SGEPlistData data = self.spriteFrame.spriteData;
 	CGPoint ap = self.anchorPointInPoints;
 	
-	float l = - ap.x;
-	float r = data.sourceSize.width - ap.x;
-	float t = ap.y;
-	float b = - data.sourceSize.height + ap.y;
+	float l = - ap.x / initialScale;
+	float r = data.sourceSize.width - ap.x / initialScale;
+	float t = ap.y / initialScale;
+	float b = - data.sourceSize.height + ap.y / initialScale;
 	
 	float loffset = data.sourceColorRect.origin.x;
 	float roffset = data.sourceColorRect.origin.x - data.offset.x * 2.0f;
@@ -222,9 +221,6 @@
 			  self.color.blue,
 			  self.color.alpha);
 	
-//	[self.spriteFrame.texture drawFrame:self.spriteFrame.textureSpaceFrame
-//							inRectWithSize:self.contentSize
-//						withAnchorPoint:self.anchorPointInPoints];
 	[self.texture drawTextureQuad:self.txQuad verticesQuad:self.vxQuad];
 }
 
