@@ -12,7 +12,12 @@
 #import "SGEGLTextureAtlas.h"
 
 @interface SGESprite : SGENode
+{
+	float initialScale;
+}
 
+@property(nonatomic, readonly) SGEQuad vxQuad;
+@property(nonatomic, readonly) SGEQuad txQuad;
 @property(nonatomic, retain) SGESpriteFrame *spriteFrame;
 @property(nonatomic, retain) SGEGLTexture *texture;
 

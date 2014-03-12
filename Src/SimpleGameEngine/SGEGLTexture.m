@@ -302,6 +302,56 @@ SGEGLTexture *currentTexture;
 	glPopMatrix();
 }
 
+- (void) drawTextureQuad:(SGEQuad)texQuad verticesQuad:(SGEQuad)vertQuad
+{
+	//Texture is directed upside-down.
+	//So invert frame too.
+//	GLfloat		texCoordinates[] = {
+//		fx, fy + fHeight,
+//		fx + fWidth, fy + fHeight,
+//		fx, fy,
+//		fx + fWidth, fy
+//	};
+//	
+//	GLfloat width = size.width;
+//	GLfloat height = size.height;
+//	
+//	GLfloat left = -anchorPoint.x;
+//	GLfloat right = width - anchorPoint.x;
+//	GLfloat top = anchorPoint.y;
+//	GLfloat bottom = -(height - anchorPoint.y);
+//	
+//	GLfloat vertices[] = {
+//		left, bottom, 0,
+//		right, bottom, 0,
+//		left, top, 0,
+//		right, top, 0
+//	};
+	
+	GLfloat		texCoordinates[] = {
+		texQuad.tl.x, texQuad.tl.y,
+		texQuad.tr.x, texQuad.tr.y,
+		texQuad.bl.x, texQuad.bl.y,
+		texQuad.br.x, texQuad.br.y
+	};
+	
+	GLfloat vertices[] = {
+		vertQuad.bl.x, vertQuad.bl.y, 0,
+		vertQuad.br.x, vertQuad.br.y, 0,
+		vertQuad.tl.x, vertQuad.tl.y, 0,
+		vertQuad.tr.x, vertQuad.tr.y, 0
+	};
+	
+	if(currentTexture != self){
+		glBindTexture(GL_TEXTURE_2D, _name);
+		currentTexture = self;
+	}
+	glVertexPointer(3, GL_FLOAT, 0, vertices);
+	glTexCoordPointer(2, GL_FLOAT, 0, texCoordinates);
+	
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+}
+
 - (void) drawFrame:(CGRect)texFrame inRectWithSize:(CGSize)size withAnchorPoint:(CGPoint)anchorPoint
 {
 	GLfloat fWidth = texFrame.size.width;

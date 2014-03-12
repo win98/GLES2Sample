@@ -34,7 +34,15 @@
 		CGRect frame = CGRectMake(0, 0,
 								  texture.contentSize.width, texture.contentSize.height);
 		
-		sFrame = [SGESpriteFrame spriteWithFrame:frame texture:texture rotation:0 name:texture.textureFileName];
+		SGEPlistData data;
+		
+		data.frame = frame;
+		data.offset = mp(0, 0);
+		data.rotated = NO;
+		data.sourceColorRect = frame;
+		data.sourceSize = frame.size;
+		
+		sFrame = [SGESpriteFrame spriteFrameWithData:data texture:texture name:texture.textureFileName];
 	}
 	
 	return sFrame;
@@ -86,15 +94,14 @@
 	sourceSize = CGSizeMake(((NSString*)arr[1]).floatValue,
 							((NSString*)arr[2]).floatValue);
 	
-	//TODO: make sprites to work with offset
-	plistData data;
+	SGEPlistData data;
 	data.frame = frame;
 	data.offset = offset;
 	data.rotated = rotated;
 	data.sourceColorRect = sourceColorRect;
 	data.sourceSize = sourceSize;
 	
-	sFrame = [SGESpriteFrame spriteFrameWithData:data];
+	sFrame = [SGESpriteFrame spriteFrameWithData:data texture:tex name:name];
 	
 	return sFrame;
 }

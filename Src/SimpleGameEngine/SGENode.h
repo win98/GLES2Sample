@@ -11,23 +11,6 @@
 #import <OpenGLES/ES1/glext.h>
 #import "matrix.h"
 
-typedef struct _SGEColor{
-	float red;
-	float green;
-	float blue;
-	float alpha;
-} SGEColor;
-
-static inline SGEColor SGEColorMake (float red, float green, float blue, float alpha)
-{
-	SGEColor color;
-	color.red = red;
-	color.green = green;
-	color.blue = blue;
-	color.alpha = alpha;
-	
-	return color;
-}
 
 @interface SGENode : SGEObject{
 	
