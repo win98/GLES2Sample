@@ -10,6 +10,7 @@
 #import "SGEResourcesLoader.h"
 #import "SGESprite.h"
 #import "SGEGameController.h"
+#import "SGEAnimation.h"
 
 @implementation MyScene
 
@@ -18,6 +19,8 @@ int play = 0;
 
 float prevx;
 float dx = 0;
+
+SGEAnimation *anim;
 
 //TODO  -Animation class
 //		-Layers
@@ -38,20 +41,18 @@ float dx = 0;
 	s4 = [SGESprite spriteWithName:@"osingleton4.png" atlas:atlas];
 	s5 = [SGESprite spriteWithName:@"osingleton5.png" atlas:atlas];
 	
-	
 	[self addChild:back];
 	[self addChild:back2];
 	back.position = mp(-back.contentSize.width, 0);
 	[self addChild:s1];
-//	s1.center = mp(self.center.x, self.center.y);
-	s1.anchorPoint = mp(1, 1);
-//	s1.scale = 0.5f;
-//	[s1 addChild:s2];
-	[s2 addChild:s3];
-	[s3 addChild:s4];
-	[s4 addChild:s5];
+	s1.anchorPoint = mp(0.5f, 0.5f);
 
+	NSArray *names = @[@"osingleton1.png", @"osingleton2.png",
+					   @"osingleton3.png", @"osingleton4.png", @"osingleton5.png"];
 	
+	anim = [[SGEAnimation alloc] initWithFrames:[atlas spriteFramesForNames:names]
+								 framesInterval:0.1f animationObject:s1 looped:NO returnToFirstFrame:YES startImmediatelly:YES onFinishCallback:nil];
+
 }
 
 - (void) update:(NSTimeInterval)dt
@@ -67,6 +68,12 @@ float dx = 0;
 	}
 	
 	s1.rotation += 45 * dt;
+	
+	if(s1.rotation >= 360){
+		[anim switchToOriginalFrameAndStop];
+		[anim release];
+		anim = nil;
+	}
 	
 	dx = 0;
 }

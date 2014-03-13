@@ -10,6 +10,7 @@
 #import "SGEGLTexture.h"
 #import "SGESpriteFrame.h"
 #import "SGEGLTextureAtlas.h"
+#import "SGEAnimation.h"
 
 @interface SGESprite : SGENode
 {

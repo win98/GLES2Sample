@@ -64,7 +64,7 @@
 - (id) initWithName:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas
 {	if(self = [super init]){
 		
-		self.spriteFrame = atlas.spriteFrames[sprite];
+		self.spriteFrame = [atlas spriteFrameNamed:sprite];
 		
 		self.texture = self.spriteFrame.texture;
 	}

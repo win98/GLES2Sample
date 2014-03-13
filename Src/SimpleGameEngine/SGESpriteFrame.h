@@ -15,7 +15,7 @@ typedef struct _SGEPlistData{
 	BOOL rotated;
 	CGRect sourceColorRect;
 	CGSize sourceSize;
-}SGEPlistData;
+} SGEPlistData;
 
 @interface SGESpriteFrame : SGEObject
 

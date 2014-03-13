@@ -13,6 +13,9 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2873B52118CF436500702B2A /* apple_ex.png in Resources */ = {isa = PBXBuildFile; fileRef = 2873B52018CF436500702B2A /* apple_ex.png */; };
 		2873B52318CF495900702B2A /* apple_ex-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2873B52218CF495900702B2A /* apple_ex-hd.png */; };
+		2873B52618D19FD000702B2A /* sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2873B52418D19FD000702B2A /* sprites.plist */; };
+		2873B52718D19FD000702B2A /* sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 2873B52518D19FD000702B2A /* sprites.png */; };
+		2873B52A18D1A3A200702B2A /* SGEAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2873B52918D1A3A200702B2A /* SGEAnimation.m */; };
 		28BC201D18CDE17A006E0FBF /* testAtlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28BC201B18CDE17A006E0FBF /* testAtlas.plist */; };
 		28BC201E18CDE17A006E0FBF /* testAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BC201C18CDE17A006E0FBF /* testAtlas.png */; };
 		28BC202118CDFF14006E0FBF /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BC202018CDFF14006E0FBF /* MyScene.m */; };
@@ -71,6 +74,10 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2873B52018CF436500702B2A /* apple_ex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apple_ex.png; path = Resources/apple_ex.png; sourceTree = "<group>"; };
 		2873B52218CF495900702B2A /* apple_ex-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "apple_ex-hd.png"; path = "Resources/apple_ex-hd.png"; sourceTree = "<group>"; };
+		2873B52418D19FD000702B2A /* sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = sprites.plist; path = Resources/sprites.plist; sourceTree = "<group>"; };
+		2873B52518D19FD000702B2A /* sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sprites.png; path = Resources/sprites.png; sourceTree = "<group>"; };
+		2873B52818D1A3A200702B2A /* SGEAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEAnimation.h; sourceTree = "<group>"; };
+		2873B52918D1A3A200702B2A /* SGEAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEAnimation.m; sourceTree = "<group>"; };
 		28BC201B18CDE17A006E0FBF /* testAtlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = testAtlas.plist; path = Resources/testAtlas.plist; sourceTree = "<group>"; };
 		28BC201C18CDE17A006E0FBF /* testAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = testAtlas.png; path = Resources/testAtlas.png; sourceTree = "<group>"; };
 		28BC201F18CDFF14006E0FBF /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
@@ -234,6 +241,8 @@
 				A549B1A318CFC148006F7CDD /* back2.png */,
 				A549B1A718CFDAA9006F7CDD /* oceanSingletons-hd.plist */,
 				A549B1A818CFDAA9006F7CDD /* oceanSingletons-hd.png */,
+				2873B52418D19FD000702B2A /* sprites.plist */,
+				2873B52518D19FD000702B2A /* sprites.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -308,6 +317,8 @@
 				A58F3E6F18C280F8001C5619 /* SGEObject.m */,
 				A58F3E7B18C28574001C5619 /* SGELog.h */,
 				A58F3E7C18C28574001C5619 /* SGELog.m */,
+				2873B52818D1A3A200702B2A /* SGEAnimation.h */,
+				2873B52918D1A3A200702B2A /* SGEAnimation.m */,
 				A58F3E7118C28130001C5619 /* SGENode.h */,
 				A58F3E7218C28130001C5619 /* SGENode.m */,
 				A593E6B418C35E1A004BD9D7 /* SGESprite.h */,
@@ -397,6 +408,8 @@
 				A54A7CD918C7CE7100864144 /* CMakeLists.txt in Resources */,
 				AFC29B8D11D56BC3006F150F /* Icon.png in Resources */,
 				A549B1A518CFC148006F7CDD /* back2.png in Resources */,
+				2873B52718D19FD000702B2A /* sprites.png in Resources */,
+				2873B52618D19FD000702B2A /* sprites.plist in Resources */,
 				A549B1A918CFDAA9006F7CDD /* oceanSingletons-hd.plist in Resources */,
 				AFC29B8E11D56BC3006F150F /* Icon@2x.png in Resources */,
 				A549B1AA18CFDAA9006F7CDD /* oceanSingletons-hd.png in Resources */,
@@ -419,6 +432,7 @@
 				A54A7CDD18C7CE7100864144 /* mat3.c in Sources */,
 				A593E6C218C369A9004BD9D7 /* SGEResourcesLoader.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				2873B52A18D1A3A200702B2A /* SGEAnimation.m in Sources */,
 				28BC202118CDFF14006E0FBF /* MyScene.m in Sources */,
 				A5927E4F187712CE00E121BE /* RootViewController.m in Sources */,
 				A54A7CE118C7CE7100864144 /* ray2.c in Sources */,

@@ -10,6 +10,14 @@
 #import "SGEGLViewController.h"
 #import "SGEScene.h"
 
+@protocol GameEventsProtocol <NSObject>
+
+@required
+- (void) onPause;
+- (void) onContinue;
+
+@end
+
 @interface SGEGameController : SGEObject
 {	
 	BOOL isAnimating;
@@ -33,6 +41,9 @@
 + (void) setGameSceneClass:(Class)class;
 
 + (CGSize)screenSize;
+
+- (void) registerGameObject:(id<GameEventsProtocol>)object;
+- (void) deregisterGameObject:(id<GameEventsProtocol>)object;
 
 - (CGSize)gameSceneSize;
 - (BOOL) isRetina;

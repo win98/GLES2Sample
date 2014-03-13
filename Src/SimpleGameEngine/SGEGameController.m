@@ -16,6 +16,7 @@ static Class gameSceneClass;
 @interface SGEGameController()
 
 @property(nonatomic, retain) CADisplayLink *displayLink;
+@property(nonatomic, retain) NSMutableArray *specialObjects;
 
 @end
 
@@ -26,6 +27,8 @@ static Class gameSceneClass;
 @synthesize scene;
 @synthesize sceneProcessingTime;
 @synthesize sceneDrawingTime;
+@synthesize displayLink;
+@synthesize specialObjects;
 
 + (SGEGameController*) sharedController
 {
@@ -64,6 +67,8 @@ static Class gameSceneClass;
 		
 		self.displayLink = nil;
 		isAnimating = NO;
+		
+		self.specialObjects = [NSMutableArray array];
 		
 		prevTime = [NSDate timeIntervalSinceReferenceDate];
 	}
@@ -125,6 +130,7 @@ static Class gameSceneClass;
 	[self.viewController setTouchesDelegate:nil];
 	self.viewController = nil;
 	self.scene = nil;
+	self.specialObjects = nil;
 	
 	[super dealloc];
 }
@@ -173,6 +179,8 @@ static Class gameSceneClass;
 		
 		isAnimating = TRUE;
 	}
+	
+	[self pauseGame];
 }
 
 - (void) stop
@@ -183,6 +191,32 @@ static Class gameSceneClass;
 		
 		isAnimating = FALSE;
 	}
+	
+	[self continueGame];
+}
+
+- (void) pauseGame
+{
+	for(id<GameEventsProtocol>object in self.specialObjects){
+		[object onPause];
+	}
+}
+
+- (void) continueGame
+{
+	for(id<GameEventsProtocol>object in self.specialObjects){
+		[object onContinue];
+	}
+}
+
+- (void) registerGameObject:(id<GameEventsProtocol>)object
+{
+	[self.specialObjects addObject:object];
+}
+
+- (void) deregisterGameObject:(id<GameEventsProtocol>)object
+{
+	[self.specialObjects removeObject:object];
 }
 
 @end
