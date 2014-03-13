@@ -133,7 +133,7 @@
 	self.contentSize = CGSizeMake(spriteFrame.spriteData.sourceSize.width * sizeFactor,
 								  spriteFrame.spriteData.sourceSize.height * sizeFactor);
 	
-	[self calculateQuads];
+	self.anchorPoint = self.anchorPoint;
 	
 	needToUpdatetransform = YES;
 }

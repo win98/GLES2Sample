@@ -22,7 +22,7 @@ float dx = 0;
 
 SGEAnimation *anim;
 
-//TODO  -Animation class
+//TODO  -(+)Animation class
 //		-Layers
 //		-Camera
 //		-Font(!)
@@ -45,7 +45,7 @@ SGEAnimation *anim;
 	[self addChild:back2];
 	back.position = mp(-back.contentSize.width, 0);
 	[self addChild:s1];
-	s1.anchorPoint = mp(0.5f, 0.5f);
+	s1.anchorPoint = mp(0.2f, 0.5f);
 
 	NSArray *names = @[@"osingleton1.png", @"osingleton2.png",
 					   @"osingleton3.png", @"osingleton4.png", @"osingleton5.png"];
