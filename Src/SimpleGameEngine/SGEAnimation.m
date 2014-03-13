@@ -21,6 +21,7 @@
 		
 		self.frames = array;
 		self.currentFrameNum = 0;
+		isOverlapped = NO;
 	}
 	
 	return self;
@@ -38,8 +39,12 @@
 
 - (void) nextFrame
 {
+	isOverlapped = NO;
+	
 	if(++self.currentFrameNum >= [self totalFrames]){
+		
 		self.currentFrameNum = 0;
+		isOverlapped = YES;
 	}
 }
 
@@ -50,9 +55,9 @@
 	}
 }
 
-- (BOOL)isLastFrame
+- (BOOL)isOverlapped
 {
-	return (self.currentFrameNum == self.frames.count - 1);
+	return isOverlapped;
 }
 
 - (SGESpriteFrame*) currentframe
@@ -93,6 +98,8 @@
 			   looped:(BOOL)loop returnToFirstFrame:(BOOL)ret startImmediatelly:(BOOL)start
 	 onFinishCallback:(SEL)finSel
 {
+	NSAssert([frames count], @"Frames count for creating animation should not be nil!");
+	
 	if(self = [super init]){
 		
 		self.sequence = [SGEFramesSequence sequenceWithSpriteFrames:frames];
@@ -144,7 +151,7 @@
 
 - (void) tick
 {
-	if(![self.sequence isLastFrame]){
+	if(![self.sequence isOverlapped]){
 		//normal animation flow
 		
 		[self.animationObject setSpriteFrame:self.sequence.currentframe];

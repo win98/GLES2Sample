@@ -12,6 +12,9 @@
 @class SGESprite, SGESpriteFrame;
 
 @interface SGEFramesSequence : SGEObject
+{
+	BOOL isOverlapped;
+}
 
 @property(nonatomic, retain) NSArray *frames;
 @property(nonatomic) int currentFrameNum;
@@ -20,7 +23,7 @@
 - (void) nextFrame;
 - (void) prevFrame;
 - (SGESpriteFrame*) currentframe;
-- (BOOL)isLastFrame;
+- (BOOL) isOverlapped;
 - (void) reset;
 
 @end
