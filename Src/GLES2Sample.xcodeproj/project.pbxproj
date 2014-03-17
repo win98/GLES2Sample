@@ -11,6 +11,8 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		281CC85E18D7130D00AFA4B9 /* level-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 281CC85D18D7130D00AFA4B9 /* level-hd.png */; };
+		281CC86018D715F500AFA4B9 /* level.plist in Resources */ = {isa = PBXBuildFile; fileRef = 281CC85F18D715F500AFA4B9 /* level.plist */; };
 		2873B52118CF436500702B2A /* apple_ex.png in Resources */ = {isa = PBXBuildFile; fileRef = 2873B52018CF436500702B2A /* apple_ex.png */; };
 		2873B52318CF495900702B2A /* apple_ex-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2873B52218CF495900702B2A /* apple_ex-hd.png */; };
 		2873B52618D19FD000702B2A /* sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2873B52418D19FD000702B2A /* sprites.plist */; };
@@ -119,6 +121,8 @@
 		1D3623250D0F684500981E51 /* GLES2SampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES2SampleAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* GLES2Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLES2Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		281CC85D18D7130D00AFA4B9 /* level-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "level-hd.png"; path = "Resources/level-hd.png"; sourceTree = "<group>"; };
+		281CC85F18D715F500AFA4B9 /* level.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = level.plist; path = Resources/level.plist; sourceTree = SOURCE_ROOT; };
 		2873B52018CF436500702B2A /* apple_ex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apple_ex.png; path = Resources/apple_ex.png; sourceTree = "<group>"; };
 		2873B52218CF495900702B2A /* apple_ex-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "apple_ex-hd.png"; path = "Resources/apple_ex-hd.png"; sourceTree = "<group>"; };
 		2873B52418D19FD000702B2A /* sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = sprites.plist; path = Resources/sprites.plist; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 				2873B52418D19FD000702B2A /* sprites.plist */,
 				2873B52518D19FD000702B2A /* sprites.png */,
 				A5F1DF3218D5EC3000474655 /* Tire.png */,
+				281CC85D18D7130D00AFA4B9 /* level-hd.png */,
+				281CC85F18D715F500AFA4B9 /* level.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -696,6 +702,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFC29B8911D56BC3006F150F /* Icon-72.png in Resources */,
+				281CC86018D715F500AFA4B9 /* level.plist in Resources */,
 				28BC201D18CDE17A006E0FBF /* testAtlas.plist in Resources */,
 				A5137FEE18C5451E00D999D3 /* atlas.png in Resources */,
 				AFC29B8A11D56BC3006F150F /* Icon-Small-50.png in Resources */,
@@ -711,6 +718,7 @@
 				2873B52618D19FD000702B2A /* sprites.plist in Resources */,
 				A549B1A918CFDAA9006F7CDD /* oceanSingletons-hd.plist in Resources */,
 				AFC29B8E11D56BC3006F150F /* Icon@2x.png in Resources */,
+				281CC85E18D7130D00AFA4B9 /* level-hd.png in Resources */,
 				A549B1AA18CFDAA9006F7CDD /* oceanSingletons-hd.png in Resources */,
 				AFC29B8F11D56BC3006F150F /* iTunesArtwork in Resources */,
 				A5F1DF3318D5EC3000474655 /* Tire.png in Resources */,
@@ -828,7 +836,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = GLES2Sample;
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -849,7 +857,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = GLES2Sample;
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
