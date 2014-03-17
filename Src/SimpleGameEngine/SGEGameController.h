@@ -38,7 +38,7 @@
 
 + (SGEGameController*) sharedController;
 
-+ (void) setGameSceneClass:(Class)class;
++ (void) setGameSceneClass:(Class)cl;
 
 + (CGSize)screenSize;
 

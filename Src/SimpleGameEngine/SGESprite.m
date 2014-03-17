@@ -74,27 +74,27 @@
 
 + (id) spriteFromImageFile:(NSString*)fileName
 {
-	return [[[SGESprite alloc]initFromImageFile:fileName]autorelease];
+	return [[[self alloc]initFromImageFile:fileName]autorelease];
 }
 
 + (id) spriteFromImageFile:(NSString*)fileName position:(CGPoint)pos
 {
-	return [[[SGESprite alloc]initFromImageFile:fileName position:pos]autorelease];
+	return [[[self alloc]initFromImageFile:fileName position:pos]autorelease];
 }
 
 + (id) spriteWithSpriteFrame:(SGESpriteFrame*)sFrame
 {
-	return [[[SGESprite alloc]initWithSpriteFrame:sFrame]autorelease];
+	return [[[self alloc]initWithSpriteFrame:sFrame]autorelease];
 }
 
 + (id) spriteWithSpriteFrame:(SGESpriteFrame*)sFrame position:(CGPoint)pos
 {
-	return [[[SGESprite alloc]initWithSpriteFrame:sFrame position:pos]autorelease];
+	return [[[self alloc]initWithSpriteFrame:sFrame position:pos]autorelease];
 }
 
 + (id) spriteWithName:(NSString*)sprite atlas:(SGEGLTextureAtlas*)atlas
 {
-	return [[[SGESprite alloc] initWithName:sprite atlas:atlas] autorelease];
+	return [[[self alloc] initWithName:sprite atlas:atlas] autorelease];
 }
 
 - (void) setSpriteFrame:(SGESpriteFrame *)spriteFrame_

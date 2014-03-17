@@ -192,7 +192,7 @@
 	
 	if([children count]){
 		for(SGENode *child in children){
-			[child update:dt];
+			[child tick:dt];
 		}
 	}
 }
@@ -237,7 +237,7 @@
 						  -self.position.y - self.anchorPointInPoints.y,
 						  0);
 		kmMat4Multiply(&tmp, &transform, &matrix);
-		kmMat4RotationZ(&matrix, SGE_DEGREES_TO_PI(self.rotation));
+		kmMat4RotationZ(&matrix, SGE_DEGREES_TO_RAD(self.rotation));
 		kmMat4Multiply(&transform, &tmp, &matrix);
 		kmMat4Scaling(&matrix, scaleX, scaleY, 1);
 		kmMat4Multiply(&tmp, &transform, &matrix);

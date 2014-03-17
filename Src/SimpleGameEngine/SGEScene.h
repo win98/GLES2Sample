@@ -18,10 +18,15 @@
 	GLint sceneWidth;
 	GLint sceneHeight;
 
+	float accelerationX;
+	float accelerationY;
+	float accelerationZ;
+	
 	GLuint framebuffer, renderbuffer;
 }
 
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 - (void) drawContent;
+- (void) useAccelerometer:(BOOL)use;
 
 @end

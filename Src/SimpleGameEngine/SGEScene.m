@@ -7,6 +7,13 @@
 //
 
 #import "SGEScene.h"
+#import <CoreMotion/CoreMotion.h>
+
+@interface SGEScene()
+
+@property(nonatomic, retain) CMMotionManager *motionManager;
+
+@end
 
 @implementation SGEScene
 
@@ -148,7 +155,26 @@
 	[context release];
 	context = nil;
 	
+	[self.motionManager stopAccelerometerUpdates];
+	self.motionManager = nil;
+	
 	[super dealloc];
+}
+
+- (void) useAccelerometer:(BOOL)use
+{
+	if(use){
+		self.motionManager = [[[CMMotionManager alloc] init] autorelease];
+		self.motionManager.accelerometerUpdateInterval = 0.04f;
+		[self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+			accelerationX = accelerometerData.acceleration.x;
+			accelerationY = accelerometerData.acceleration.y;
+			accelerationZ = accelerometerData.acceleration.z;
+		}];
+	} else {
+		[self.motionManager stopAccelerometerUpdates];
+		self.motionManager = nil;
+	}
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
