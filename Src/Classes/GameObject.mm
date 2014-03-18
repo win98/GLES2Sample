@@ -21,7 +21,7 @@
 	float x = b->GetPosition().x * 32;
 	float y = b->GetPosition().y * 32;
 	self.center = mp(x, s.height - y);
-	self.rotation = SGE_RAD_TO_DEGREES(b->GetAngle());
+//	self.rotation = SGE_RAD_TO_DEGREES(b->GetAngle());
 }
 
 @end

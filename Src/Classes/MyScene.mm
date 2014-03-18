@@ -21,7 +21,7 @@
 {
 	SGELayer *mainLayer;
 	SGESprite *back;
-	GameObject *tire, *tire2;
+	GameObject *tire, *tire2, *ship;
 	
 	float dx, dy;
 		
@@ -119,15 +119,42 @@
 	[self addChild:mainLayer];
 	
 	
-	tire = [GameObject spriteFromImageFile:@"Tire.png"];
-	float x = 80, y = 240, scale = 0.05f;
+//	tire = [GameObject spriteFromImageFile:@"Tire.png"];
+//	float x = 80, y = 240, scale = 0.05f;
+//	b2BodyDef wheelBodyDef;
+//	wheelBodyDef.type = b2_dynamicBody;
+//	wheelBodyDef.position.Set(x / POINTSPERMETER, (640-y) / POINTSPERMETER);
+//	b2Body *wheelBody = world->CreateBody(&wheelBodyDef);
+//	
+//	b2CircleShape circle;
+//	circle.m_radius = tire.contentSize.width * scale * 0.5f / POINTSPERMETER;
+//	
+//	b2FixtureDef wheelShapeDef;
+//	wheelShapeDef.shape = &circle;
+//	wheelShapeDef.density = 1.0f;
+//	wheelShapeDef.friction = 0.2f;
+//	wheelShapeDef.restitution = 0.0f;
+//	wheelBody->CreateFixture(&wheelShapeDef);
+//	
+//	tire.body = wheelBody;
+//	tire.anchorPoint = mp(0.5, 0.5);
+//	tire.scale = scale;
+	
+//	[mainLayer addChild:tire];
+//	[mainLayer addChild:tire2];
+	
+	float x = 80, y = 240, scale = 0.7f;
+	ship = [GameObject spriteFromImageFile:@"ship.png"];
+	ship.anchorPoint = mp(0.5, 0.5);
+	ship.scale = scale;
+	ship.center = mp(x, y);
 	b2BodyDef wheelBodyDef;
 	wheelBodyDef.type = b2_dynamicBody;
 	wheelBodyDef.position.Set(x / POINTSPERMETER, (640-y) / POINTSPERMETER);
 	b2Body *wheelBody = world->CreateBody(&wheelBodyDef);
 	
 	b2CircleShape circle;
-	circle.m_radius = tire.contentSize.width * scale * 0.5f / POINTSPERMETER;
+	circle.m_radius = ship.contentSize.width * scale * 0.1f / POINTSPERMETER;
 	
 	b2FixtureDef wheelShapeDef;
 	wheelShapeDef.shape = &circle;
@@ -136,12 +163,9 @@
 	wheelShapeDef.restitution = 0.0f;
 	wheelBody->CreateFixture(&wheelShapeDef);
 	
-	tire.body = wheelBody;
-	tire.anchorPoint = mp(0.5, 0.5);
-	tire.scale = scale;
+	ship.body = wheelBody;
 	
-	[mainLayer addChild:tire];
-//	[mainLayer addChild:tire2];
+	[mainLayer addChild:ship];
 	
 	[self useAccelerometer:YES];
 
@@ -151,9 +175,22 @@
 - (void) update:(NSTimeInterval)dt
 {
 	b2Vec2 gravity;
-	gravity.x = -accelerationY * 9.5f * 5;
-	gravity.y = accelerationX * 9.5f * 5;
-	world->SetGravity(gravity);
+	gravity.x = -accelerationY * 9.5f;
+	gravity.y = -accelerationX * 9.5f;
+//	world->SetGravity(gravity);
+	
+	b2Vec2 vel(gravity.y/3, gravity.x/3);
+	ship.body->SetLinearVelocity(vel);
+	
+	float a = SGE_RAD_TO_DEGREES(atan(gravity.x/gravity.y));
+	
+	if(gravity.x > 0 && gravity.y < 0){
+		a = 180 + a;
+	} else if(gravity.x < 0 && gravity.y < 0){
+		a = 180 + a;
+	}
+	NSLog(@"X:%f   Y:%f    A:%f", gravity.x, gravity.y, a);
+	ship.rotation = a;
 	
 	world->Step(dt, 8, 3);
 	

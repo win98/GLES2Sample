@@ -52,6 +52,7 @@
 		A593E6BC18C3626E004BD9D7 /* SGEGLTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = A593E6BB18C3626E004BD9D7 /* SGEGLTextureAtlas.m */; };
 		A593E6C218C369A9004BD9D7 /* SGEResourcesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = A593E6C118C369A9004BD9D7 /* SGEResourcesLoader.m */; };
 		A593E6C818C3DB02004BD9D7 /* box.png in Resources */ = {isa = PBXBuildFile; fileRef = A593E6C718C3DB02004BD9D7 /* box.png */; };
+		A5A3880418D7BD5400FB0059 /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A3880318D7BD5400FB0059 /* ship.png */; };
 		A5DE0BE218CCCB2700337891 /* SGEScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE0BE118CCCB2700337891 /* SGEScene.m */; };
 		A5DE0BE518CCD98A00337891 /* SGELayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE0BE418CCD98A00337891 /* SGELayer.m */; };
 		A5DE0BE818CCDA5D00337891 /* SGEGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE0BE718CCDA5D00337891 /* SGEGameController.m */; };
@@ -190,6 +191,7 @@
 		A593E6C018C369A9004BD9D7 /* SGEResourcesLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEResourcesLoader.h; sourceTree = "<group>"; };
 		A593E6C118C369A9004BD9D7 /* SGEResourcesLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEResourcesLoader.m; sourceTree = "<group>"; };
 		A593E6C718C3DB02004BD9D7 /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box.png; path = Resources/box.png; sourceTree = "<group>"; };
+		A5A3880318D7BD5400FB0059 /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship.png; path = Resources/ship.png; sourceTree = "<group>"; };
 		A5DE0BE018CCCB2700337891 /* SGEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEScene.h; sourceTree = "<group>"; };
 		A5DE0BE118CCCB2700337891 /* SGEScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGEScene.m; sourceTree = "<group>"; };
 		A5DE0BE318CCD98A00337891 /* SGELayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGELayer.h; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				A5F1DF3218D5EC3000474655 /* Tire.png */,
 				281CC85D18D7130D00AFA4B9 /* level-hd.png */,
 				281CC85F18D715F500AFA4B9 /* level.plist */,
+				A5A3880318D7BD5400FB0059 /* ship.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -724,6 +727,7 @@
 				A5F1DF3318D5EC3000474655 /* Tire.png in Resources */,
 				A549B1A418CFC148006F7CDD /* back1.png in Resources */,
 				28BC201E18CDE17A006E0FBF /* testAtlas.png in Resources */,
+				A5A3880418D7BD5400FB0059 /* ship.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
